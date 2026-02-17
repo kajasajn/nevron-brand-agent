@@ -413,7 +413,7 @@ font-family: var(--nevron-font-family);
 2. Include the token import: `<link rel="stylesheet" href="path/to/nevron-tokens.css">`
 3. **Always include PrimeIcons CDN** — `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">` — and use `<i class="pi pi-*">` for icons. Do NOT use inline SVGs or other icon libraries
 4. **Verify every icon name** via WebFetch before using it
-5. **Use real brand assets** — always use images from the repo's `assets/` folder (illustrations, screenshots, product images, icons) instead of placeholders. **Copy the files into the project folder** before referencing them — never link to the repo path directly
+5. **Use real brand assets when appropriate** — use images from the repo's `assets/` folder (illustrations, screenshots, product images) instead of placeholders, but use them **sparingly and thoughtfully**. Not every section needs an image. Pick only what genuinely adds value to the content. **Copy the files into the project folder** before referencing them — never link to the repo path directly
 6. Mobile-first, semantic, accessible
 7. Provide complete, working code — not fragments
 
