@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Nevron Design Tokens
+   Complete CSS custom properties for the Nevron brand system.
+   Import this file into any web project for instant brand consistency.
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     Colors — Primary Blues
+     ======================================================================== */
+  --nevron-color-m1: #000126; /* Navy — darkest backgrounds, text on light */
+  --nevron-color-m2: #00317A; /* Dark Blue — secondary dark, accents */
+  --nevron-color-m3: #0067B2; /* Brand Blue — primary CTAs, links */
+  --nevron-color-m4: #009CDE; /* Medium Blue — interactive states */
+  --nevron-color-m5: #7BCAED; /* Light Blue — decorative, tags */
+  --nevron-color-m6: #E1F4FF; /* Pale Blue — light backgrounds */
+
+  /* ========================================================================
+     Colors — Secondary Grays
+     ======================================================================== */
+  --nevron-color-s1: #080C13; /* Near Black — body text */
+  --nevron-color-s2: #2C3038; /* Dark Gray — secondary text */
+  --nevron-color-s3: #6B7077; /* Medium Gray — tertiary text, borders */
+  --nevron-color-s4: #A4A7AB; /* Gray — disabled, placeholders */
+  --nevron-color-s5: #D3D5D6; /* Light Gray — borders, dividers */
+  --nevron-color-s6: #EFF0F0; /* Off White — subtle backgrounds */
+
+  /* ========================================================================
+     Colors — Supporting
+     ======================================================================== */
+  --nevron-color-red: #DA2025;    /* Errors, destructive actions */
+  --nevron-color-orange: #E56600; /* Warnings, attention */
+  --nevron-color-yellow: #F6A900; /* Caution, highlights */
+  --nevron-color-green: #36A058;  /* Success, confirmation */
+
+  /* ========================================================================
+     Colors — Neutrals
+     ======================================================================== */
+  --nevron-color-black: #000000;
+  --nevron-color-white: #FFFFFF;
+
+  /* ========================================================================
+     Colors — Semantic Aliases
+     ======================================================================== */
+  --nevron-color-primary: var(--nevron-color-m3);
+  --nevron-color-primary-dark: var(--nevron-color-m2);
+  --nevron-color-primary-light: var(--nevron-color-m5);
+
+  --nevron-color-text: var(--nevron-color-s1);
+  --nevron-color-text-secondary: var(--nevron-color-s2);
+  --nevron-color-text-tertiary: var(--nevron-color-s3);
+  --nevron-color-text-disabled: var(--nevron-color-s4);
+  --nevron-color-text-inverse: var(--nevron-color-white);
+
+  --nevron-color-bg: var(--nevron-color-white);
+  --nevron-color-bg-subtle: var(--nevron-color-s6);
+  --nevron-color-bg-muted: var(--nevron-color-m6);
+  --nevron-color-bg-dark: var(--nevron-color-m1);
+
+  --nevron-color-border: var(--nevron-color-s5);
+  --nevron-color-border-strong: var(--nevron-color-s3);
+
+  --nevron-color-error: var(--nevron-color-red);
+  --nevron-color-warning: var(--nevron-color-orange);
+  --nevron-color-caution: var(--nevron-color-yellow);
+  --nevron-color-success: var(--nevron-color-green);
+
+  --nevron-color-link: var(--nevron-color-m3);
+  --nevron-color-link-hover: var(--nevron-color-m2);
+  --nevron-color-focus: var(--nevron-color-m4);
+
+  /* ========================================================================
+     Typography
+     ======================================================================== */
+  --nevron-font-family: 'Neue Haas Unica', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Font Sizes */
+  --nevron-font-size-display: 3rem;      /* 48px */
+  --nevron-font-size-h1: 2.25rem;        /* 36px */
+  --nevron-font-size-h2: 1.75rem;        /* 28px */
+  --nevron-font-size-h3: 1.375rem;       /* 22px */
+  --nevron-font-size-h4: 1.125rem;       /* 18px */
+  --nevron-font-size-body-lg: 1.125rem;  /* 18px */
+  --nevron-font-size-body: 1rem;         /* 16px */
+  --nevron-font-size-body-sm: 0.875rem;  /* 14px */
+  --nevron-font-size-caption: 0.75rem;   /* 12px */
+
+  /* Font Weights */
+  --nevron-font-weight-regular: 400;
+  --nevron-font-weight-medium: 500;
+  --nevron-font-weight-semibold: 600;
+  --nevron-font-weight-bold: 700;
+
+  /* Line Heights */
+  --nevron-line-height-display: 1.1;
+  --nevron-line-height-heading: 1.2;
+  --nevron-line-height-body: 1.5;
+  --nevron-line-height-body-lg: 1.6;
+  --nevron-line-height-tight: 1.25;
+  --nevron-line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --nevron-letter-spacing-tight: -0.02em;
+  --nevron-letter-spacing-normal: 0;
+  --nevron-letter-spacing-wide: 0.02em;
+  --nevron-letter-spacing-caps: 0.06em;
+
+  /* ========================================================================
+     Spacing (8px base grid)
+     ======================================================================== */
+  --nevron-space-1: 0.25rem;  /* 4px */
+  --nevron-space-2: 0.5rem;   /* 8px */
+  --nevron-space-3: 0.75rem;  /* 12px */
+  --nevron-space-4: 1rem;     /* 16px */
+  --nevron-space-5: 1.25rem;  /* 20px */
+  --nevron-space-6: 1.5rem;   /* 24px */
+  --nevron-space-8: 2rem;     /* 32px */
+  --nevron-space-10: 2.5rem;  /* 40px */
+  --nevron-space-12: 3rem;    /* 48px */
+  --nevron-space-16: 4rem;    /* 64px */
+  --nevron-space-20: 5rem;    /* 80px */
+  --nevron-space-24: 6rem;    /* 96px */
+  --nevron-space-32: 8rem;    /* 128px */
+
+  /* ========================================================================
+     Layout
+     ======================================================================== */
+  --nevron-max-width: 75rem;        /* 1200px — content max */
+  --nevron-max-width-narrow: 48rem; /* 768px — text content */
+  --nevron-max-width-wide: 90rem;   /* 1440px — wide layouts */
+
+  --nevron-breakpoint-sm: 640px;
+  --nevron-breakpoint-md: 768px;
+  --nevron-breakpoint-lg: 1024px;
+  --nevron-breakpoint-xl: 1440px;
+
+  /* ========================================================================
+     Border Radius
+     ======================================================================== */
+  --nevron-radius-sm: 0.25rem;   /* 4px — small elements, tags */
+  --nevron-radius-md: 0.5rem;    /* 8px — buttons, inputs */
+  --nevron-radius-lg: 0.75rem;   /* 12px — cards */
+  --nevron-radius-xl: 1rem;      /* 16px — modals, large cards */
+  --nevron-radius-2xl: 1.5rem;   /* 24px — hero sections */
+  --nevron-radius-full: 9999px;  /* Pills, avatars */
+
+  /* ========================================================================
+     Shadows
+     ======================================================================== */
+  --nevron-shadow-sm: 0 1px 2px rgba(0, 1, 38, 0.05);
+  --nevron-shadow-md: 0 4px 6px -1px rgba(0, 1, 38, 0.07),
+                      0 2px 4px -2px rgba(0, 1, 38, 0.05);
+  --nevron-shadow-lg: 0 10px 15px -3px rgba(0, 1, 38, 0.08),
+                      0 4px 6px -4px rgba(0, 1, 38, 0.05);
+  --nevron-shadow-xl: 0 20px 25px -5px rgba(0, 1, 38, 0.1),
+                      0 8px 10px -6px rgba(0, 1, 38, 0.05);
+
+  /* ========================================================================
+     Transitions
+     ======================================================================== */
+  --nevron-transition-fast: 150ms ease;
+  --nevron-transition-base: 250ms ease;
+  --nevron-transition-slow: 350ms ease;
+  --nevron-transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ========================================================================
+     Z-Index Scale
+     ======================================================================== */
+  --nevron-z-base: 0;
+  --nevron-z-dropdown: 100;
+  --nevron-z-sticky: 200;
+  --nevron-z-overlay: 300;
+  --nevron-z-modal: 400;
+  --nevron-z-toast: 500;
+}
