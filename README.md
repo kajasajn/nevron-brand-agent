@@ -2,6 +2,8 @@
 
 A standalone Claude Code agent that enforces Nevron brand consistency across all output formats — web, presentations, documents, and print.
 
+Works in both the **Claude Code CLI** (terminal) and the **Claude Code desktop app**.
+
 ## What's Included
 
 ```
