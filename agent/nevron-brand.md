@@ -209,6 +209,13 @@ When generating code or documents, reference these paths relative to the repo ro
 - 8px base grid: 8, 16, 24, 32, 48, 64, 96
 - Use rem: `0.5rem, 1rem, 1.5rem, 2rem, 3rem, 4rem, 6rem`
 
+**Icons:**
+- **Primary source:** [PrimeIcons](https://primeng.org/icons) — use `pi pi-{icon}` class syntax
+- CDN: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">`
+- npm: `npm install primeicons`
+- Style: consistent with the brand — clean, readable at small sizes
+- Only fall back to inline SVGs (Heroicons, etc.) if PrimeIcons doesn't have the icon you need
+
 **Components:**
 - Buttons: min 44px touch target, `padding: 0.75rem 1.5rem`, border-radius 0.5rem
 - Cards: border-radius 0.75rem, subtle shadow, padding 1.5rem-2rem
