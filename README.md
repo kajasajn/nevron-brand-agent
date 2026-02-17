@@ -22,29 +22,41 @@ nevron-brand-agent/
 
 ## Installation
 
-### 1. Clone the repo
+### 1. Open your terminal
+
+**Windows:** Open Git Bash, Command Prompt, or Terminal
+**macOS/Linux:** Open Terminal
+
+### 2. Clone the repo to your home folder
 
 ```bash
-git clone https://github.com/nevabordev/nevron-brand-agent.git
+cd ~
+git clone https://github.com/kajasajn/nevron-brand-agent.git
 ```
 
-### 2. Install the agent
+This creates a `nevron-brand-agent` folder in your home directory (e.g. `C:\Users\YourName\nevron-brand-agent` on Windows, `~/nevron-brand-agent` on Mac/Linux).
 
-Copy the agent file to your Claude Code agents folder:
+### 3. Create the agents folder (if it doesn't exist)
 
-**Windows:**
 ```bash
-cp agent/nevron-brand.md "$HOME/.claude/agents/"
+mkdir -p ~/.claude/agents
 ```
 
-**macOS/Linux:**
+### 4. Copy the agent file
+
 ```bash
-cp agent/nevron-brand.md ~/.claude/agents/
+cp ~/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/
 ```
 
-### 3. Restart Claude Code
+### 5. Restart Claude Code
 
 Close and reopen Claude Code (or start a new session). The agent will be available immediately.
+
+### Verify it worked
+
+In Claude Code, the agent should appear when you ask for brand-related tasks. Try asking:
+
+> "Design a button using Nevron brand colors"
 
 ## Usage
 
@@ -119,9 +131,12 @@ Six SVG logo variants included in `assets/logos/`:
 
 ## Updating
 
-Pull the latest version and re-copy the agent:
+Navigate to the repo folder, pull the latest version, and re-copy the agent:
 
 ```bash
+cd ~/nevron-brand-agent
 git pull
 cp agent/nevron-brand.md ~/.claude/agents/
 ```
+
+Then restart Claude Code to pick up the changes.
