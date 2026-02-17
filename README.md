@@ -29,6 +29,8 @@ nevron-brand-agent/
 **Windows:** Open Git Bash, Command Prompt, or Terminal
 **macOS/Linux:** Open Terminal
 
+You can also use the built-in terminal in the **Claude Code desktop app**.
+
 ### 2. Clone the repo to your home folder
 
 ```bash
