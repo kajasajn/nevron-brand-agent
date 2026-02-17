@@ -174,16 +174,52 @@ All brand assets are in the repository's `/assets/` folder:
 
 ```
 assets/
-├── logos/
+├── logos/                          # SVG logo variants
 │   ├── nevron-logo-icon.svg           # Monogram (blue)
-│   ├── nevron-logo-icon-white.svg     # Monogram (white, for dark bg)
+│   ├── nevron-logo-icon-white.svg     # Monogram (white)
 │   ├── nevron-logo-tagline-blue.svg   # Full logo + tagline (blue)
 │   ├── nevron-logo-tagline-white.svg  # Full logo + tagline (white)
 │   ├── nevron-logo-no-tagline-blue.svg   # Logo without tagline (blue)
 │   └── nevron-logo-no-tagline-white.svg  # Logo without tagline (white)
+├── icons/                          # Custom Nevron SVG icons (blue variants)
+│   ├── web/                           # 46 icons — product/platform features
+│   ├── contentware/                   # 62 icons — hotel services & content
+│   └── technical/                     # 19 icons — infrastructure & tech
+├── illustrations/                  # Brand illustrations (SVG + compressed PNG)
+│   ├── IL*.png                        # App state illustrations (login, cart, check-in, etc.)
+│   ├── Asset *.svg                    # Abstract brand illustrations
+│   ├── Isometric room.svg            # Isometric hotel room
+│   ├── Room_Flat.svg                  # Flat hotel room
+│   ├── Partners.svg                   # Partner logos layout
+│   └── Nevron_ilustracija_*.png       # Full brand illustration scenes
+├── product-images/                 # Hardware product photos (compressed PNG)
+│   ├── FaSTBox *.png                  # Set-top box models
+│   ├── Remote_*.png                   # Remote control models
+│   └── Tablet.png                     # Tablet hardware
+├── screenshots/                    # NevronCore app screenshots (compressed PNG)
+│   ├── mobile/                        # 69 screenshots — mobile app screens
+│   ├── tablet/                        # 41 screenshots — tablet app screens (H + V)
+│   └── tv/                            # 22 screenshots — TV portal screens
 └── fonts/
     └── README.md                      # Font licensing info
 ```
+
+### Screenshot Naming Convention
+
+Screenshots follow this pattern: `{Device}_{Feature}.png`
+
+- **Mobile:** `Mobile_Dashboard_v1.png`, `Mobile_AiChat.png`, `Mobile_Cart.png`
+- **Tablet (horizontal):** `TabletH_Dashboard_v1.png`, `TabletH_LiveTV.png`
+- **Tablet (vertical):** `TabletV_Dashboard_v1.png`, `TabletV_Cart.png`
+- **TV:** `TV_Dashboard.png`, `TV_LiveTV.png`, `TV_Cart.png`
+
+### Icon Naming Convention
+
+Custom icons use PascalCase with a `B` suffix (for Blue variant): `RoomControlB.svg`, `PowerfulCMSB.svg`
+
+- **web/** — Platform features: `ModularArchitectureB.svg`, `SeamlessIntegrationB.svg`, `CloudAndOnPremiseB.svg`
+- **contentware/** — Hotel services: `DiningB.svg`, `WellnessB.svg`, `RoomCareB.svg`, `CheckInB.svg`
+- **technical/** — Infrastructure: `GatewayB.svg`, `NetworkB.svg`, `EncoderB.svg`
 
 When generating code or documents, reference these paths relative to the repo root.
 
