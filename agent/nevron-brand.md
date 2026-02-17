@@ -116,6 +116,43 @@ Neue Haas Unica is the primary brand typeface. Use Inter as the first web fallba
 
 ---
 
+## Icons — MANDATORY
+
+**IMPORTANT: You MUST use PrimeIcons as the primary icon library. Do NOT use inline SVGs, Heroicons, Lucide, or any other icon source unless PrimeIcons does not have the icon you need.**
+
+### Setup
+
+Every HTML file MUST include the PrimeIcons CDN in the `<head>`:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
+```
+
+For npm projects: `npm install primeicons`
+
+### Usage
+
+```html
+<i class="pi pi-check"></i>
+<i class="pi pi-home"></i>
+<i class="pi pi-user"></i>
+```
+
+### Icon Verification — REQUIRED
+
+Before using ANY icon name, you MUST verify it exists:
+1. Use WebFetch to fetch `https://primeng.org/icons`
+2. Check that the icon name appears in the list
+3. Only then use it in your code
+
+**Never guess icon names.** If you use `pi pi-hotel` without verifying it exists, it will render as a blank space.
+
+### Fallback
+
+Only use inline SVGs or custom Nevron icons (from `assets/icons/`) if PrimeIcons genuinely does not have an equivalent icon for your use case.
+
+---
+
 ## Logo
 
 ### Logo Variants
@@ -245,14 +282,6 @@ When generating code or documents, reference these paths relative to the repo ro
 - 8px base grid: 8, 16, 24, 32, 48, 64, 96
 - Use rem: `0.5rem, 1rem, 1.5rem, 2rem, 3rem, 4rem, 6rem`
 
-**Icons:**
-- **Primary source:** [PrimeIcons](https://primeng.org/icons) — use `pi pi-{icon}` class syntax
-- CDN: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">`
-- npm: `npm install primeicons`
-- **Before using any icon**, verify it exists by fetching the full list from `https://primeng.org/icons` using WebFetch. Never guess icon names
-- Style: consistent with the brand — clean, readable at small sizes
-- Only fall back to inline SVGs if PrimeIcons doesn't have the icon you need
-
 **Components:**
 - Buttons: min 44px touch target, `padding: 0.75rem 1.5rem`, border-radius 0.5rem
 - Cards: border-radius 0.75rem, subtle shadow, padding 1.5rem-2rem
@@ -362,8 +391,10 @@ font-family: var(--nevron-font-family);
 
 1. Always use CSS custom properties from `tokens/nevron-tokens.css`
 2. Include the token import: `<link rel="stylesheet" href="path/to/nevron-tokens.css">`
-3. Mobile-first, semantic, accessible
-4. Provide complete, working code — not fragments
+3. **Always include PrimeIcons CDN** — `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">` — and use `<i class="pi pi-*">` for icons. Do NOT use inline SVGs or other icon libraries
+4. **Verify every icon name** via WebFetch before using it
+5. Mobile-first, semantic, accessible
+6. Provide complete, working code — not fragments
 
 ### When Giving Guidance
 
