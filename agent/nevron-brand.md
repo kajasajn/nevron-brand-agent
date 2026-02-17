@@ -213,8 +213,9 @@ When generating code or documents, reference these paths relative to the repo ro
 - **Primary source:** [PrimeIcons](https://primeng.org/icons) — use `pi pi-{icon}` class syntax
 - CDN: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">`
 - npm: `npm install primeicons`
+- **Before using any icon**, verify it exists by fetching the full list from `https://primeng.org/icons` using WebFetch. Never guess icon names
 - Style: consistent with the brand — clean, readable at small sizes
-- Only fall back to inline SVGs (Heroicons, etc.) if PrimeIcons doesn't have the icon you need
+- Only fall back to inline SVGs if PrimeIcons doesn't have the icon you need
 
 **Components:**
 - Buttons: min 44px touch target, `padding: 0.75rem 1.5rem`, border-radius 0.5rem
