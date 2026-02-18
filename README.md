@@ -89,16 +89,17 @@ Try asking:
 By default, you have to explicitly ask Claude to use the brand agent each time. To make it **automatic**, paste this prompt into Claude Code:
 
 ```
-Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks. Add it to the agents table (or create one if it doesn't exist) with this row:
+Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks.
 
+Ask me which projects I want to add it to — show me a multiple selection list of my projects that have a CLAUDE.md file. Also give me the option to add it globally to ~/.claude/CLAUDE.md.
+
+Add it to the agents table (or create one if it doesn't exist) with this row:
 | **nevron-brand** | Nevron brand colors, typography, logo usage, spacing, brand guidelines, any Nevron-branded design decisions | User asks about Nevron brand, or is building/reviewing anything Nevron-branded |
 
 Also add this to the agent decision flow (or create one): "Nevron brand question / building Nevron UI? → nevron-brand"
-
-Do this for both my global ~/.claude/CLAUDE.md and my project CLAUDE.md if one exists.
 ```
 
-That's it. Claude handles the config. The brand agent will auto-trigger from now on.
+That's it. Claude will ask you which projects to configure, then handle the rest.
 
 **What changes:**
 - Ask about Nevron colors/fonts/guidelines → brand agent called automatically
@@ -141,34 +142,34 @@ The agent responds in the user's language (English or Slovenian).
 
 ### Primary Blues
 
-```
- M1  ██████  #000126   Navy — dark backgrounds, text on light
- M2  ██████  #002391   Dark Blue — secondary dark, accents
- M3  ██████  #1B92FF   Brand Blue — primary CTAs, links ★
- M4  ██████  #73C7FF   Medium Blue — interactive states
- M5  ██████  #C3E9FF   Light Blue — backgrounds, decorative
- M6  ██████  #E1F4FF   Pale Blue — light backgrounds, cards
-```
+| Token | Hex | Role |
+|-------|-----|------|
+| M1 | ![#000126](https://placehold.co/16x16/000126/000126.png) `#000126` | Navy — dark backgrounds, text on light |
+| M2 | ![#002391](https://placehold.co/16x16/002391/002391.png) `#002391` | Dark Blue — secondary dark, accents |
+| **M3** | ![#1B92FF](https://placehold.co/16x16/1B92FF/1B92FF.png) `#1B92FF` | **Brand Blue — primary CTAs, links** |
+| M4 | ![#73C7FF](https://placehold.co/16x16/73C7FF/73C7FF.png) `#73C7FF` | Medium Blue — interactive states |
+| M5 | ![#C3E9FF](https://placehold.co/16x16/C3E9FF/C3E9FF.png) `#C3E9FF` | Light Blue — backgrounds, decorative |
+| M6 | ![#E1F4FF](https://placehold.co/16x16/E1F4FF/E1F4FF.png) `#E1F4FF` | Pale Blue — light backgrounds, cards |
 
 ### Secondary Grays
 
-```
- S1  ██████  #080C13   Near Black — body text
- S2  ██████  #353941   Dark Gray — secondary text
- S3  ██████  #707379   Medium Gray — tertiary text, borders
- S4  ██████  #B4B6B9   Gray — disabled, placeholders
- S5  ██████  #E0E1E2   Light Gray — borders, dividers
- S6  ██████  #EFF0F0   Off White — subtle backgrounds
-```
+| Token | Hex | Role |
+|-------|-----|------|
+| S1 | ![#080C13](https://placehold.co/16x16/080C13/080C13.png) `#080C13` | Near Black — body text |
+| S2 | ![#353941](https://placehold.co/16x16/353941/353941.png) `#353941` | Dark Gray — secondary text |
+| S3 | ![#707379](https://placehold.co/16x16/707379/707379.png) `#707379` | Medium Gray — tertiary text, borders |
+| S4 | ![#B4B6B9](https://placehold.co/16x16/B4B6B9/B4B6B9.png) `#B4B6B9` | Gray — disabled, placeholders |
+| S5 | ![#E0E1E2](https://placehold.co/16x16/E0E1E2/E0E1E2.png) `#E0E1E2` | Light Gray — borders, dividers |
+| S6 | ![#EFF0F0](https://placehold.co/16x16/EFF0F0/EFF0F0.png) `#EFF0F0` | Off White — subtle backgrounds |
 
 ### Supporting (functional only — never decorative)
 
-```
- 🔴  ██████  #DA2025   Red — errors, destructive actions
- 🟠  ██████  #E56600   Orange — warnings, attention
- 🟡  ██████  #F6A900   Yellow — caution, highlights
- 🟢  ██████  #36A058   Green — success, confirmation
-```
+| Color | Hex | Role |
+|-------|-----|------|
+| Red | ![#DA2025](https://placehold.co/16x16/DA2025/DA2025.png) `#DA2025` | Errors, destructive actions |
+| Orange | ![#E56600](https://placehold.co/16x16/E56600/E56600.png) `#E56600` | Warnings, attention |
+| Yellow | ![#F6A900](https://placehold.co/16x16/F6A900/F6A900.png) `#F6A900` | Caution, highlights |
+| Green | ![#36A058](https://placehold.co/16x16/36A058/36A058.png) `#36A058` | Success, confirmation |
 
 ---
 
@@ -180,27 +181,26 @@ The agent responds in the user's language (English or Slovenian).
 
 Six SVG variants in `assets/logos/`:
 
-```
- LIGHT BACKGROUNDS                      DARK BACKGROUNDS
- ─────────────────                      ────────────────
- nevron-logo-icon.svg          ←→       nevron-logo-icon-white.svg
- (monogram, blue)                       (monogram, white)
-
- nevron-logo-no-tagline-blue.svg  ←→   nevron-logo-no-tagline-white.svg
- (headers, navigation)                  (dark headers)
-
- nevron-logo-tagline-blue.svg     ←→   nevron-logo-tagline-white.svg
- (hero sections, covers)               (dark hero sections)
-```
+| Light background | | Dark background |
+|------------------|-|-----------------|
+| `nevron-logo-icon.svg` | ←→ | `nevron-logo-icon-white.svg` |
+| Monogram (blue) | | Monogram (white) |
+| | | |
+| `nevron-logo-no-tagline-blue.svg` | ←→ | `nevron-logo-no-tagline-white.svg` |
+| Headers, navigation | | Dark headers |
+| | | |
+| `nevron-logo-tagline-blue.svg` | ←→ | `nevron-logo-tagline-white.svg` |
+| Hero sections, covers | | Dark hero sections |
 
 **Quick pick:**
-```
- Small space (< 80px)?        → Monogram/Icon
- First impression (hero)?     → With tagline
- Navigation / repeated?       → Without tagline
- Dark background?             → White variant
- Light background?            → Blue variant
-```
+
+| Question | Use |
+|----------|-----|
+| Small space (< 80px)? | Monogram/Icon |
+| First impression (hero)? | With tagline |
+| Navigation / repeated? | Without tagline |
+| Dark background? | White variant |
+| Light background? | Blue variant |
 
 ---
 
