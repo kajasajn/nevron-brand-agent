@@ -71,10 +71,10 @@ Nevron is a **technology company serving the hospitality industry**. The brand p
 | Token | Hex | Usage |
 |-------|-----|-------|
 | S1 — Near Black | `#080C13` | Body text |
-| S2 — Dark Gray | `#2C3038` | Secondary text |
-| S3 — Medium Gray | `#6B7077` | Tertiary text, borders |
-| S4 — Gray | `#A4A7AB` | Disabled states, placeholders |
-| S5 — Light Gray | `#D3D5D6` | Borders, dividers |
+| S2 — Dark Gray | `#353941` | Secondary text |
+| S3 — Medium Gray | `#707379` | Tertiary text, borders |
+| S4 — Gray | `#B4B6B9` | Disabled states, placeholders |
+| S5 — Light Gray | `#E0E1E2` | Borders, dividers |
 | S6 — Off White | `#EFF0F0` | Subtle backgrounds |
 
 ### Supporting Colors
