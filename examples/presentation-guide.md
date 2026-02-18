@@ -137,9 +137,9 @@ For statistics, graphs, and metrics.
 ```
 
 **Rules:**
-- Chart colors (in order of priority): M3 `#1B92FF`, M4 `#73C7FF`, M5 `#C3E9FF`, S3 `#6B7077`
-- Labels and axes: S2 `#2C3038`, 14px
-- Source text: S3 `#6B7077`, 12px
+- Chart colors (in order of priority): M3 `#1B92FF`, M4 `#73C7FF`, M5 `#C3E9FF`, S3 `#707379`
+- Labels and axes: S2 `#353941`, 14px
+- Source text: S3 `#707379`, 12px
 - Keep charts simple — no 3D effects, no excessive gridlines
 - Data labels should be readable at presentation distance
 
@@ -192,5 +192,5 @@ Final slide. Leaves a lasting impression and provides next steps.
 | Light accent | M5 Light Blue | `#C3E9FF` |
 | Body text (light bg) | S1 Near Black | `#080C13` |
 | Body text (dark bg) | White | `#FFFFFF` |
-| Secondary text | S2 Dark Gray | `#2C3038` |
-| Subtle text | S3 Medium Gray | `#6B7077` |
+| Secondary text | S2 Dark Gray | `#353941` |
+| Subtle text | S3 Medium Gray | `#707379` |
