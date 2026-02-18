@@ -60,7 +60,7 @@ Close and reopen Claude Code (or start a new session). The agent will be availab
 
 In Claude Code, the agent should appear when you ask for brand-related tasks. Try asking:
 
-> "Design a button using Nevron brand colors"
+> "Design a button using Nevron brand colors. Deploy the nevron-brand agent."
 
 ## Auto-Trigger Setup (Recommended)
 
