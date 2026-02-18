@@ -122,10 +122,10 @@ Six SVG logo variants included in `assets/logos/`:
 | Token | Hex | Role |
 |-------|-----|------|
 | M1 | `#000126` | Navy (dark backgrounds) |
-| M2 | `#00317A` | Dark Blue |
-| M3 | `#0067B2` | Brand Blue (primary) |
-| M4 | `#009CDE` | Medium Blue |
-| M5 | `#7BCAED` | Light Blue |
+| M2 | `#002391` | Dark Blue |
+| M3 | `#1B92FF` | Brand Blue (primary) |
+| M4 | `#73C7FF` | Medium Blue |
+| M5 | `#C3E9FF` | Light Blue |
 | M6 | `#E1F4FF` | Pale Blue |
 | S1-S6 | Gray scale | Text and UI |
 | Red | `#DA2025` | Errors |

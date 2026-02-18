@@ -36,7 +36,7 @@ The opening slide. Sets the tone for the entire presentation.
 
 **Rules:**
 - Title: White, 48px, Bold (700)
-- Subtitle: M5 `#7BCAED`, 18px, Regular (400)
+- Subtitle: M5 `#C3E9FF`, 18px, Regular (400)
 - Use logo **with tagline** (white variant)
 - Background: Solid M1 or gradient from M1 to M3
 
@@ -47,7 +47,7 @@ Marks the start of a new section. Keep it bold and simple.
 ```
 ┌──────────────────────────────────────────┐
 │                                          │
-│  ██████████████████████████████████████  │  Background: M3 Brand Blue (#0067B2)
+│  ██████████████████████████████████████  │  Background: M3 Brand Blue (#1B92FF)
 │                                          │
 │  01                                      │  M5 Light Blue, Caption (12px)
 │                                          │
@@ -60,7 +60,7 @@ Marks the start of a new section. Keep it bold and simple.
 ```
 
 **Rules:**
-- Section number: M5 `#7BCAED`, 12px, caps, wide letter-spacing
+- Section number: M5 `#C3E9FF`, 12px, caps, wide letter-spacing
 - Title: White, 36px, Bold (700)
 - Background: Solid M3
 
@@ -137,7 +137,7 @@ For statistics, graphs, and metrics.
 ```
 
 **Rules:**
-- Chart colors (in order of priority): M3 `#0067B2`, M4 `#009CDE`, M5 `#7BCAED`, S3 `#6B7077`
+- Chart colors (in order of priority): M3 `#1B92FF`, M4 `#73C7FF`, M5 `#C3E9FF`, S3 `#6B7077`
 - Labels and axes: S2 `#2C3038`, 14px
 - Source text: S3 `#6B7077`, 12px
 - Keep charts simple — no 3D effects, no excessive gridlines
@@ -187,9 +187,9 @@ Final slide. Leaves a lasting impression and provides next steps.
 | Element | Color | Hex |
 |---------|-------|-----|
 | Dark background | M1 Navy | `#000126` |
-| Primary accent | M3 Brand Blue | `#0067B2` |
-| Interactive/secondary | M4 Medium Blue | `#009CDE` |
-| Light accent | M5 Light Blue | `#7BCAED` |
+| Primary accent | M3 Brand Blue | `#1B92FF` |
+| Interactive/secondary | M4 Medium Blue | `#73C7FF` |
+| Light accent | M5 Light Blue | `#C3E9FF` |
 | Body text (light bg) | S1 Near Black | `#080C13` |
 | Body text (dark bg) | White | `#FFFFFF` |
 | Secondary text | S2 Dark Gray | `#2C3038` |

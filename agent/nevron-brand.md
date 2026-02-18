@@ -60,10 +60,10 @@ Nevron is a **technology company serving the hospitality industry**. The brand p
 | Token | Hex | Usage |
 |-------|-----|-------|
 | M1 — Navy | `#000126` | Darkest backgrounds, text on light |
-| M2 — Dark Blue | `#00317A` | Secondary dark, accents |
-| M3 — Brand Blue | `#0067B2` | Primary brand color, CTAs, links |
-| M4 — Medium Blue | `#009CDE` | Interactive states, highlights |
-| M5 — Light Blue | `#7BCAED` | Backgrounds, decorative |
+| M2 — Dark Blue | `#002391` | Secondary dark, accents |
+| M3 — Brand Blue | `#1B92FF` | Primary brand color, CTAs, links |
+| M4 — Medium Blue | `#73C7FF` | Interactive states, highlights |
+| M5 — Light Blue | `#C3E9FF` | Backgrounds, decorative |
 | M6 — Pale Blue | `#E1F4FF` | Light backgrounds, cards |
 
 ### Secondary Grays
@@ -95,7 +95,7 @@ Nevron is a **technology company serving the hospitality industry**. The brand p
 
 ### Color Usage Rules
 
-1. **Primary actions** use M3 (Brand Blue `#0067B2`)
+1. **Primary actions** use M3 (Brand Blue `#1B92FF`)
 2. **Dark backgrounds** use M1 (Navy `#000126`) or S1 (Near Black `#080C13`)
 3. **Body text** uses S1 on light backgrounds, White on dark
 4. **Supporting colors** are functional only — never decorative

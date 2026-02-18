@@ -71,7 +71,7 @@ No header or footer on the cover/title page.
 | Level | Font Size | Weight | Color | Usage |
 |-------|-----------|--------|-------|-------|
 | Document Title | 36px (H1) | Bold (700) | M1 `#000126` | Cover page title |
-| Section Header | 28px (H2) | SemiBold (600) | M3 `#0067B2` | Major sections |
+| Section Header | 28px (H2) | SemiBold (600) | M3 `#1B92FF` | Major sections |
 | Subsection | 22px (H3) | SemiBold (600) | S1 `#080C13` | Subsections |
 | Sub-subsection | 18px (H4) | SemiBold (600) | S1 `#080C13` | Minor headers |
 | Body | 16px | Regular (400) | S1 `#080C13` | Default text |
@@ -89,7 +89,7 @@ No header or footer on the cover/title page.
 ## Content Elements
 
 ### Links
-- Color: M3 `#0067B2`
+- Color: M3 `#1B92FF`
 - Style: Underlined
 - Include full URL in print documents (footnote or inline)
 
@@ -104,7 +104,7 @@ No header or footer on the cover/title page.
 - Same indent rules as bullets
 
 ### Blockquotes / Pull Quotes
-- Left border: 3px solid M3 `#0067B2`
+- Left border: 3px solid M3 `#1B92FF`
 - Padding left: 16px
 - Text: Italic, S2 `#2C3038`
 - Font size: Body Large (18px)
@@ -142,7 +142,7 @@ No header or footer on the cover/title page.
 
 | Type | Left Border | Background | Icon |
 |------|-------------|------------|------|
-| Info | M3 `#0067B2` | M6 `#E1F4FF` | i |
+| Info | M3 `#1B92FF` | M6 `#E1F4FF` | i |
 | Warning | Orange `#E56600` | Light orange | ! |
 | Error | Red `#DA2025` | Light red | x |
 | Success | Green `#36A058` | Light green | check |
