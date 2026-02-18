@@ -1,10 +1,25 @@
-# Nevron Brand Agent
 
-A standalone Claude Code agent that enforces Nevron brand consistency across all output formats — web, presentations, documents, and print.
+```
+ ███╗   ██╗███████╗██╗   ██╗██████╗  ██████╗ ███╗   ██╗
+ ████╗  ██║██╔════╝██║   ██║██╔══██╗██╔═══██╗████╗  ██║
+ ██╔██╗ ██║█████╗  ██║   ██║██████╔╝██║   ██║██╔██╗ ██║
+ ██║╚██╗██║██╔══╝  ╚██╗ ██╔╝██╔══██╗██║   ██║██║╚██╗██║
+ ██║ ╚████║███████╗ ╚████╔╝ ██║  ██║╚██████╔╝██║ ╚████║
+ ╚═╝  ╚═══╝╚══════╝  ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+ B R A N D   A G E N T
+```
+
+A standalone **Claude Code agent** that enforces Nevron brand consistency across all output formats — web, presentations, documents, and print.
 
 Works in both the **Claude Code CLI** (terminal) and the **Claude Code desktop app**.
 
-## What's Included
+---
+
+```
+ ╔══════════════════════════════════════╗
+ ║  📦  WHAT'S INCLUDED                ║
+ ╚══════════════════════════════════════╝
+```
 
 ```
 nevron-brand-agent/
@@ -12,6 +27,10 @@ nevron-brand-agent/
 │   └── nevron-brand.md          # The agent (install this)
 ├── assets/
 │   ├── logos/                   # SVG logos (monogram, with/without tagline)
+│   ├── icons/                   # Custom Nevron SVG icons
+│   ├── illustrations/           # Brand illustrations
+│   ├── product-images/          # Hardware product photos
+│   ├── screenshots/             # NevronCore app screenshots
 │   └── fonts/
 │       └── README.md            # Font licensing info
 ├── tokens/
@@ -22,51 +41,52 @@ nevron-brand-agent/
     └── document-guide.md        # PDF/Word document formatting
 ```
 
-## Installation
+---
 
-### 1. Open your terminal
+```
+ ╔══════════════════════════════════════╗
+ ║  ⚡  QUICK START                     ║
+ ╚══════════════════════════════════════╝
+```
 
-**Windows:** Open Git Bash, Command Prompt, or Terminal
-**macOS/Linux:** Open Terminal
-
-You can also use the built-in terminal in the **Claude Code desktop app**.
-
-### 2. Clone the repo to your home folder
+### 1. Clone the repo
 
 ```bash
 cd ~
 git clone https://github.com/kajasajn/nevron-brand-agent.git
 ```
 
-This creates a `nevron-brand-agent` folder in your home directory (e.g. `C:\Users\YourName\nevron-brand-agent` on Windows, `~/nevron-brand-agent` on Mac/Linux).
-
-### 3. Create the agents folder (if it doesn't exist)
+### 2. Create the agents folder
 
 ```bash
 mkdir -p ~/.claude/agents
 ```
 
-### 4. Copy the agent file
+### 3. Copy the agent file
 
 ```bash
 cp ~/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/
 ```
 
-### 5. Restart Claude Code
+### 4. Restart Claude Code
 
-Close and reopen Claude Code (or start a new session). The agent will be available immediately.
+Close and reopen Claude Code (or start a new session). Done.
 
-### Verify it worked
+### 5. Verify
 
-In Claude Code, the agent should appear when you ask for brand-related tasks. Try asking:
+Try asking:
 
 > "Design a button using Nevron brand colors. Deploy the nevron-brand agent."
 
-## Auto-Trigger Setup (Recommended)
+---
 
-By default, Claude Code won't automatically call the brand agent — you have to explicitly ask for it each time. To make it **automatic**, paste this prompt into Claude Code and it will configure everything for you:
+```
+ ╔══════════════════════════════════════╗
+ ║  🔁  AUTO-TRIGGER SETUP             ║
+ ╚══════════════════════════════════════╝
+```
 
-### Paste this into Claude Code:
+By default, you have to explicitly ask Claude to use the brand agent each time. To make it **automatic**, paste this prompt into Claude Code:
 
 ```
 Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks. Add it to the agents table (or create one if it doesn't exist) with this row:
@@ -78,48 +98,125 @@ Also add this to the agent decision flow (or create one): "Nevron brand question
 Do this for both my global ~/.claude/CLAUDE.md and my project CLAUDE.md if one exists.
 ```
 
-That's it. Claude will edit your config files and the brand agent will auto-trigger from now on.
+That's it. Claude handles the config. The brand agent will auto-trigger from now on.
 
-### What this does
-
-With auto-trigger set up, Claude Code will automatically:
-- Call the brand agent when you ask about Nevron colors, fonts, or guidelines
-- Call the brand agent before building any Nevron-branded component
-- Call the brand agent when reviewing designs for brand consistency
-- Use correct brand tokens, logo variants, and typography without you having to specify them
+**What changes:**
+- Ask about Nevron colors/fonts/guidelines → brand agent called automatically
+- Build any Nevron-branded component → brand agent called first
+- Review a design for brand consistency → brand agent consulted
+- Correct tokens, logos, and typography used without you specifying them
 
 ---
 
-## Usage
+```
+ ╔══════════════════════════════════════╗
+ ║  💬  USAGE EXAMPLES                 ║
+ ╚══════════════════════════════════════╝
+```
 
-Once installed, Claude will use the Nevron brand agent when you ask for brand-related work. Examples:
-
-**Web design:**
+**Web design**
 > "Design a hero section for the Nevron website"
 
-**Presentations:**
+**Presentations**
 > "Create a slide layout for a client pitch deck"
 
-**Documents:**
+**Documents**
 > "Format a proposal document for Hotel Kempinski"
 
-**Brand review:**
+**Brand review**
 > "Review this design for brand consistency"
 
-**Slovenian:**
+**Slovenian**
 > "Oblikuj kartico za NevronCore funkcijo"
 
 The agent responds in the user's language (English or Slovenian).
 
-## CSS Tokens
+---
 
-Drop `tokens/nevron-tokens.css` into any web project for instant access to all brand values:
+```
+ ╔══════════════════════════════════════╗
+ ║  🎨  BRAND COLORS                   ║
+ ╚══════════════════════════════════════╝
+```
+
+### Primary Blues
+
+```
+ M1  ██████  #000126   Navy — dark backgrounds, text on light
+ M2  ██████  #002391   Dark Blue — secondary dark, accents
+ M3  ██████  #1B92FF   Brand Blue — primary CTAs, links ★
+ M4  ██████  #73C7FF   Medium Blue — interactive states
+ M5  ██████  #C3E9FF   Light Blue — backgrounds, decorative
+ M6  ██████  #E1F4FF   Pale Blue — light backgrounds, cards
+```
+
+### Secondary Grays
+
+```
+ S1  ██████  #080C13   Near Black — body text
+ S2  ██████  #353941   Dark Gray — secondary text
+ S3  ██████  #707379   Medium Gray — tertiary text, borders
+ S4  ██████  #B4B6B9   Gray — disabled, placeholders
+ S5  ██████  #E0E1E2   Light Gray — borders, dividers
+ S6  ██████  #EFF0F0   Off White — subtle backgrounds
+```
+
+### Supporting (functional only — never decorative)
+
+```
+ 🔴  ██████  #DA2025   Red — errors, destructive actions
+ 🟠  ██████  #E56600   Orange — warnings, attention
+ 🟡  ██████  #F6A900   Yellow — caution, highlights
+ 🟢  ██████  #36A058   Green — success, confirmation
+```
+
+---
+
+```
+ ╔══════════════════════════════════════╗
+ ║  🏷️  LOGO ASSETS                    ║
+ ╚══════════════════════════════════════╝
+```
+
+Six SVG variants in `assets/logos/`:
+
+```
+ LIGHT BACKGROUNDS                      DARK BACKGROUNDS
+ ─────────────────                      ────────────────
+ nevron-logo-icon.svg          ←→       nevron-logo-icon-white.svg
+ (monogram, blue)                       (monogram, white)
+
+ nevron-logo-no-tagline-blue.svg  ←→   nevron-logo-no-tagline-white.svg
+ (headers, navigation)                  (dark headers)
+
+ nevron-logo-tagline-blue.svg     ←→   nevron-logo-tagline-white.svg
+ (hero sections, covers)               (dark hero sections)
+```
+
+**Quick pick:**
+```
+ Small space (< 80px)?        → Monogram/Icon
+ First impression (hero)?     → With tagline
+ Navigation / repeated?       → Without tagline
+ Dark background?             → White variant
+ Light background?            → Blue variant
+```
+
+---
+
+```
+ ╔══════════════════════════════════════╗
+ ║  🔤  CSS TOKENS                     ║
+ ╚══════════════════════════════════════╝
+```
+
+Drop `tokens/nevron-tokens.css` into any web project:
 
 ```html
 <link rel="stylesheet" href="path/to/nevron-tokens.css">
 ```
 
-Then use the custom properties:
+Then use custom properties:
 
 ```css
 .my-button {
@@ -132,38 +229,13 @@ Then use the custom properties:
 }
 ```
 
-## Logo Assets
+---
 
-Six SVG logo variants included in `assets/logos/`:
-
-| File | Variant | Use for |
-|------|---------|---------|
-| `nevron-logo-icon.svg` | Monogram (blue) | Favicons, small avatars |
-| `nevron-logo-icon-white.svg` | Monogram (white) | Dark backgrounds |
-| `nevron-logo-no-tagline-blue.svg` | Logo (blue) | Headers, navigation |
-| `nevron-logo-no-tagline-white.svg` | Logo (white) | Dark headers |
-| `nevron-logo-tagline-blue.svg` | Full logo (blue) | Hero sections, covers |
-| `nevron-logo-tagline-white.svg` | Full logo (white) | Dark hero sections |
-
-## Brand Colors
-
-| Token | Hex | Role |
-|-------|-----|------|
-| M1 | `#000126` | Navy (dark backgrounds) |
-| M2 | `#002391` | Dark Blue |
-| M3 | `#1B92FF` | Brand Blue (primary) |
-| M4 | `#73C7FF` | Medium Blue |
-| M5 | `#C3E9FF` | Light Blue |
-| M6 | `#E1F4FF` | Pale Blue |
-| S1-S6 | Gray scale | Text and UI |
-| Red | `#DA2025` | Errors |
-| Orange | `#E56600` | Warnings |
-| Yellow | `#F6A900` | Caution |
-| Green | `#36A058` | Success |
-
-## Updating
-
-Navigate to the repo folder, pull the latest version, and re-copy the agent:
+```
+ ╔══════════════════════════════════════╗
+ ║  🔄  UPDATING                       ║
+ ╚══════════════════════════════════════╝
+```
 
 ```bash
 cd ~/nevron-brand-agent
