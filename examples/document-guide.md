@@ -75,8 +75,8 @@ No header or footer on the cover/title page.
 | Subsection | 22px (H3) | SemiBold (600) | S1 `#080C13` | Subsections |
 | Sub-subsection | 18px (H4) | SemiBold (600) | S1 `#080C13` | Minor headers |
 | Body | 16px | Regular (400) | S1 `#080C13` | Default text |
-| Body Small | 14px | Regular (400) | S2 `#2C3038` | Captions, notes |
-| Caption | 12px | Regular (400) | S3 `#6B7077` | Footnotes, labels |
+| Body Small | 14px | Regular (400) | S2 `#353941` | Captions, notes |
+| Caption | 12px | Regular (400) | S3 `#707379` | Footnotes, labels |
 
 ### Paragraph Formatting
 - **Line spacing:** 1.15 for dense docs, 1.5 for readable docs
@@ -126,14 +126,14 @@ No header or footer on the cover/title page.
 **Table rules:**
 - Header row: M1 `#000126` background, White text, Bold
 - Body rows: Alternating White / S6 `#EFF0F0`
-- Borders: S5 `#D3D5D6`, 1px
+- Borders: S5 `#E0E1E2`, 1px
 - Cell padding: 8px vertical, 12px horizontal
 - Text alignment: Left for text, right for numbers
 - Font size: Body Small (14px) if table is dense
 
 ### Code Blocks
 - Background: S6 `#EFF0F0`
-- Border: 1px S5 `#D3D5D6`
+- Border: 1px S5 `#E0E1E2`
 - Border radius: 4px
 - Font: Monospace, Body Small (14px)
 - Padding: 16px
