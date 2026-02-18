@@ -68,13 +68,15 @@ By default, Claude Code won't automatically call the brand agent — you have to
 
 ### Paste this into Claude Code:
 
-> Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks. Add it to the agents table (or create one if it doesn't exist) with this row:
->
-> | **nevron-brand** | Nevron brand colors, typography, logo usage, spacing, brand guidelines, any Nevron-branded design decisions | User asks about Nevron brand, or is building/reviewing anything Nevron-branded |
->
-> Also add this to the agent decision flow (or create one): "Nevron brand question / building Nevron UI? → nevron-brand"
->
-> Do this for both my global ~/.claude/CLAUDE.md and my project CLAUDE.md if one exists.
+```
+Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks. Add it to the agents table (or create one if it doesn't exist) with this row:
+
+| **nevron-brand** | Nevron brand colors, typography, logo usage, spacing, brand guidelines, any Nevron-branded design decisions | User asks about Nevron brand, or is building/reviewing anything Nevron-branded |
+
+Also add this to the agent decision flow (or create one): "Nevron brand question / building Nevron UI? → nevron-brand"
+
+Do this for both my global ~/.claude/CLAUDE.md and my project CLAUDE.md if one exists.
+```
 
 That's it. Claude will edit your config files and the brand agent will auto-trigger from now on.
 
