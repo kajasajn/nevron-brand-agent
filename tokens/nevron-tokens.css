@@ -19,10 +19,10 @@
      Colors — Secondary Grays
      ======================================================================== */
   --nevron-color-s1: #080C13; /* Near Black — body text */
-  --nevron-color-s2: #2C3038; /* Dark Gray — secondary text */
-  --nevron-color-s3: #6B7077; /* Medium Gray — tertiary text, borders */
-  --nevron-color-s4: #A4A7AB; /* Gray — disabled, placeholders */
-  --nevron-color-s5: #D3D5D6; /* Light Gray — borders, dividers */
+  --nevron-color-s2: #353941; /* Dark Gray — secondary text */
+  --nevron-color-s3: #707379; /* Medium Gray — tertiary text, borders */
+  --nevron-color-s4: #B4B6B9; /* Gray — disabled, placeholders */
+  --nevron-color-s5: #E0E1E2; /* Light Gray — borders, dividers */
   --nevron-color-s6: #EFF0F0; /* Off White — subtle backgrounds */
 
   /* ========================================================================
