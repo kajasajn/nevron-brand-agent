@@ -62,6 +62,52 @@ In Claude Code, the agent should appear when you ask for brand-related tasks. Tr
 
 > "Design a button using Nevron brand colors"
 
+## Auto-Trigger Setup (Recommended)
+
+By default, Claude Code won't automatically call the brand agent — you'd have to manually ask it. To make Claude **automatically use the brand agent** whenever Nevron design/branding comes up, add these rules to your CLAUDE.md.
+
+### Option A: Global (all projects)
+
+Add to `~/.claude/CLAUDE.md`:
+
+```markdown
+## Agents — ALWAYS Use When Relevant
+
+**Never do manually what an agent can do.** Before starting work, check if an agent fits the task.
+
+| Agent | When to Use | Trigger |
+|-------|-------------|---------|
+| **nevron-brand** | Nevron brand colors, typography, logo usage, spacing, brand guidelines, any Nevron-branded design decisions | User asks about Nevron brand, or is building/reviewing anything Nevron-branded |
+
+### Agent Decision Flow
+
+- **Nevron brand question / building Nevron UI?** → nevron-brand (colors, fonts, logo, guidelines)
+```
+
+### Option B: Per-project
+
+Add to your project's `CLAUDE.md`:
+
+```markdown
+## Agents
+
+| Agent | When to Use |
+|-------|-------------|
+| **nevron-brand** | Any task involving Nevron brand — colors, typography, logo, icons, design review, new components |
+
+**Rule:** Before building or reviewing ANY Nevron-branded design, ALWAYS call the nevron-brand agent first to get current brand tokens and guidelines.
+```
+
+### What this does
+
+With these rules in place, Claude Code will automatically:
+- Call the brand agent when you ask "what are the Nevron colors?"
+- Call the brand agent before building any Nevron-branded component
+- Call the brand agent when reviewing designs for brand consistency
+- Use correct brand tokens, logo variants, and typography without you having to specify them
+
+---
+
 ## Usage
 
 Once installed, Claude will use the Nevron brand agent when you ask for brand-related work. Examples:
