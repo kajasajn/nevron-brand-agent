@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
 
   <!-- Nevron design tokens -->
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=smooth">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=condense">
 
   <style>
     /* ==========================================================================
@@ -157,14 +157,15 @@
     .header {
       background: var(--nevron-gradient-dark);
       color: var(--nevron-color-white);
-      padding: var(--nevron-space-24) 0 var(--nevron-space-20);
+      padding: var(--nevron-space-16) 0 var(--nevron-space-12);
       text-align: center;
     }
 
     .header__logo {
-      width: 260px;
-      margin: 0 auto var(--nevron-space-10);
-      filter: brightness(0) invert(1);
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--nevron-space-6);
+      display: block;
     }
 
     .header__title {
@@ -172,7 +173,7 @@
       font-weight: var(--nevron-font-weight-bold);
       line-height: var(--nevron-line-height-display);
       letter-spacing: var(--nevron-letter-spacing-tight);
-      margin: 0 0 var(--nevron-space-4) 0;
+      margin: 0 0 var(--nevron-space-3) 0;
     }
 
     .header__subtitle {
@@ -253,40 +254,35 @@
     /* ==========================================================================
        3. Colors
        ========================================================================== */
-    .color-group { margin-bottom: var(--nevron-space-10); }
+    .color-group { margin-bottom: var(--nevron-space-6); }
 
     .color-group__title {
-      font-size: var(--nevron-font-size-h3);
+      font-size: var(--nevron-font-size-h4);
       font-weight: var(--nevron-font-weight-semibold);
       color: var(--nevron-color-m1);
-      margin: 0 0 var(--nevron-space-5) 0;
+      margin: 0 0 var(--nevron-space-3) 0;
     }
 
     .swatches {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--nevron-space-4);
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--nevron-space-3);
     }
 
     .swatch {
       display: flex;
       flex-direction: column;
       box-shadow: var(--nevron-shadow-sm);
-      transition: transform var(--nevron-transition-base), box-shadow var(--nevron-transition-base);
-    }
-
-    .swatch:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--nevron-shadow-md);
     }
 
     .swatch__chip {
-      height: 96px;
+      height: 48px;
       border: 1px solid var(--nevron-color-s5);
+      border-bottom: none;
     }
 
     .swatch__meta {
-      padding: var(--nevron-space-4);
+      padding: var(--nevron-space-3);
       background: var(--nevron-color-white);
       border: 1px solid var(--nevron-color-s5);
       border-top: none;
@@ -982,9 +978,9 @@
        ======================================================================== -->
   <header class="header">
     <div class="container">
-      <img src="nevron-logo-tagline-blue.svg" alt="Nevron — Smart solutions for smart hotels" class="header__logo">
+      <img class="header__logo" src="nevron-logo-icon-white.svg" alt="Nevron">
       <h1 class="header__title">Nevron Brand System</h1>
-      <p class="header__subtitle">Living reference for colors, typography, components, and patterns</p>
+      <p class="header__subtitle">Living reference for colors, typography, components, and patterns.</p>
     </div>
   </header>
 
