@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
 
   <!-- Nevron design tokens -->
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=condense">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=swatches">
 
   <style>
     /* ==========================================================================
@@ -266,26 +266,27 @@
     .swatches {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: var(--nevron-space-3);
+      gap: var(--nevron-space-5);
     }
 
     .swatch {
       display: flex;
       flex-direction: column;
-      box-shadow: var(--nevron-shadow-sm);
+      gap: var(--nevron-space-2);
     }
 
     .swatch__chip {
-      height: 48px;
-      border: 1px solid var(--nevron-color-s5);
-      border-bottom: none;
+      height: 96px;
+      box-shadow: inset 0 0 0 1px rgba(0, 1, 38, 0.08);
     }
 
     .swatch__meta {
-      padding: var(--nevron-space-3);
-      background: var(--nevron-color-white);
-      border: 1px solid var(--nevron-color-s5);
-      border-top: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0;
+      background: transparent;
+      border: none;
     }
 
     .swatch__token {
@@ -980,7 +981,7 @@
     <div class="container">
       <img class="header__logo" src="nevron-logo-icon-white.svg" alt="Nevron">
       <h1 class="header__title">Nevron Brand System</h1>
-      <p class="header__subtitle">Living reference for colors, typography, components, and patterns.</p>
+      <p class="header__subtitle">Living reference for colors, typography, components, and patterns.<br>Enforced by the nevron-brand Claude Code agent.</p>
     </div>
   </header>
 
