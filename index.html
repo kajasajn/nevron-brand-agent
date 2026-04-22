@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevron Brand Agent — Install & Update</title>
+
+  <link rel="stylesheet" href="tokens/nevron-tokens.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--nevron-font-family);
+      font-size: var(--nevron-font-size-body);
+      line-height: var(--nevron-line-height-body);
+      color: var(--nevron-color-s1);
+      background: var(--nevron-color-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 var(--nevron-space-6);
+    }
+
+    /* ================= HEADER ================= */
+    .header {
+      background: var(--nevron-gradient-dark);
+      color: var(--nevron-color-white);
+      padding: var(--nevron-space-16) 0 var(--nevron-space-12);
+      text-align: center;
+    }
+
+    .header__logo {
+      height: 48px;
+      width: auto;
+      margin: 0 auto var(--nevron-space-8);
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    .header__title {
+      font-size: var(--nevron-font-size-display);
+      font-weight: var(--nevron-font-weight-bold);
+      line-height: var(--nevron-line-height-display);
+      letter-spacing: var(--nevron-letter-spacing-tight);
+      margin-bottom: var(--nevron-space-4);
+    }
+
+    .header__subtitle {
+      font-size: var(--nevron-font-size-body-lg);
+      font-weight: var(--nevron-font-weight-regular);
+      color: var(--nevron-color-m5);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ================= SECTION ================= */
+    section {
+      padding: var(--nevron-space-16) 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--nevron-color-s5);
+    }
+
+    .section__eyebrow {
+      display: block;
+      font-size: var(--nevron-font-size-caption);
+      font-weight: var(--nevron-font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--nevron-color-m3);
+      margin-bottom: var(--nevron-space-3);
+    }
+
+    .section__title {
+      font-size: var(--nevron-font-size-h1);
+      font-weight: var(--nevron-font-weight-light);
+      line-height: var(--nevron-line-height-heading);
+      letter-spacing: var(--nevron-letter-spacing-tight);
+      margin-bottom: var(--nevron-space-4);
+      color: var(--nevron-color-m1);
+    }
+
+    .section__lead {
+      font-size: var(--nevron-font-size-body-lg);
+      color: var(--nevron-color-s2);
+      margin-bottom: var(--nevron-space-8);
+      max-width: 620px;
+    }
+
+    h3 {
+      font-size: var(--nevron-font-size-h4);
+      font-weight: var(--nevron-font-weight-semibold);
+      margin: var(--nevron-space-6) 0 var(--nevron-space-2);
+      color: var(--nevron-color-m1);
+    }
+
+    p { margin-bottom: var(--nevron-space-4); }
+
+    /* ================= STEPS ================= */
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      margin: var(--nevron-space-8) 0;
+    }
+
+    .step {
+      counter-increment: step;
+      position: relative;
+      padding: var(--nevron-space-6) 0 var(--nevron-space-6) var(--nevron-space-12);
+      border-bottom: 1px solid var(--nevron-color-s5);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--nevron-space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--nevron-color-m3);
+      color: var(--nevron-color-white);
+      font-weight: var(--nevron-font-weight-semibold);
+      font-size: var(--nevron-font-size-body-sm);
+    }
+
+    .step__title {
+      font-size: var(--nevron-font-size-h4);
+      font-weight: var(--nevron-font-weight-semibold);
+      margin-bottom: var(--nevron-space-2);
+      color: var(--nevron-color-m1);
+    }
+
+    .step__body {
+      color: var(--nevron-color-s2);
+      margin-bottom: var(--nevron-space-3);
+    }
+
+    /* ================= CODE ================= */
+    pre {
+      background: var(--nevron-color-m1);
+      color: var(--nevron-color-m5);
+      padding: var(--nevron-space-5) var(--nevron-space-6);
+      overflow-x: auto;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: var(--nevron-font-size-body-sm);
+      line-height: 1.6;
+      margin: var(--nevron-space-4) 0;
+    }
+
+    code {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.9em;
+      background: var(--nevron-color-s6);
+      padding: 0.15em 0.4em;
+      color: var(--nevron-color-m2);
+    }
+
+    pre code { background: transparent; padding: 0; color: inherit; }
+
+    /* ================= CALLOUT ================= */
+    .callout {
+      padding: var(--nevron-space-5) var(--nevron-space-6);
+      background: var(--nevron-color-m6);
+      border-left: 3px solid var(--nevron-color-m3);
+      margin: var(--nevron-space-6) 0;
+      color: var(--nevron-color-s1);
+    }
+
+    .callout strong { color: var(--nevron-color-m1); }
+
+    /* ================= CTA ================= */
+    .cta-block {
+      background: var(--nevron-gradient-dark);
+      color: var(--nevron-color-white);
+      padding: var(--nevron-space-10) var(--nevron-space-8);
+      text-align: center;
+      margin-top: var(--nevron-space-8);
+    }
+
+    .cta-block__title {
+      font-size: var(--nevron-font-size-h2);
+      font-weight: var(--nevron-font-weight-light);
+      margin-bottom: var(--nevron-space-3);
+      letter-spacing: var(--nevron-letter-spacing-tight);
+    }
+
+    .cta-block__text {
+      color: var(--nevron-color-m5);
+      margin-bottom: var(--nevron-space-6);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--nevron-space-2);
+      min-height: 44px;
+      padding: 0.75rem 1.5rem;
+      background: var(--nevron-color-m3);
+      color: var(--nevron-color-white);
+      font-weight: var(--nevron-font-weight-semibold);
+      text-decoration: none;
+      font-size: var(--nevron-font-size-body);
+      transition: background var(--nevron-transition-fast),
+                  transform var(--nevron-transition-fast);
+    }
+
+    .btn:hover { background: var(--nevron-color-m2); transform: translateY(-1px); }
+    .btn .pi { transition: transform var(--nevron-transition-fast); }
+    .btn:hover .pi { transform: translateX(4px); }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      padding: var(--nevron-space-10) 0;
+      text-align: center;
+      background: var(--nevron-color-s6);
+      color: var(--nevron-color-s3);
+      font-size: var(--nevron-font-size-body-sm);
+    }
+
+    .footer a {
+      color: var(--nevron-color-m3);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 640px) {
+      .header { padding: var(--nevron-space-10) 0 var(--nevron-space-8); }
+      .header__title { font-size: var(--nevron-font-size-h1); }
+      .section__title { font-size: var(--nevron-font-size-h2); }
+      .step { padding-left: var(--nevron-space-10); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <img class="header__logo" src="nevron-logo-tagline-blue.svg" alt="Nevron">
+      <h1 class="header__title">Nevron Brand Agent</h1>
+      <p class="header__subtitle">A Claude Code agent that enforces Nevron brand consistency across web, presentations, documents, and print.</p>
+    </div>
+  </header>
+
+  <!-- WHAT IS THIS -->
+  <section>
+    <div class="container">
+      <span class="section__eyebrow">01 — What is this</span>
+      <h2 class="section__title">A brand specialist, on demand</h2>
+      <p class="section__lead">The nevron-brand agent plugs into Claude Code and enforces Nevron's brand system — colors, typography, logos, spacing, gradients — anywhere you're building or reviewing Nevron-branded work.</p>
+
+      <p>It knows the full brand spec (colors, typography, gradients, corner radius rules, logo variants, PrimeIcons), has access to every brand asset in this repository, and applies the rules automatically instead of you having to remember them.</p>
+
+      <div class="callout">
+        <strong>Scope:</strong> Nevron-branded work only — NevronCore, company site, client pitches, internal docs. Not for non-Nevron projects or unrelated brands.
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section>
+    <div class="container">
+      <span class="section__eyebrow">02 — Quick start</span>
+      <h2 class="section__title">Install in under a minute</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <h3 class="step__title">Clone the repo</h3>
+          <p class="step__body">Pulls the agent, brand spec, tokens, and all assets to your home folder.</p>
+<pre><code>cd ~
+git clone https://github.com/kajasajn/nevron-brand-agent.git</code></pre>
+        </li>
+
+        <li class="step">
+          <h3 class="step__title">Create the agents folder</h3>
+          <p class="step__body">Claude Code looks here for user-installed agents.</p>
+<pre><code>mkdir -p ~/.claude/agents</code></pre>
+        </li>
+
+        <li class="step">
+          <h3 class="step__title">Copy the agent file</h3>
+          <p class="step__body">Installs the agent definition. Brand repo stays intact; only the definition file is copied.</p>
+<pre><code>cp ~/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/</code></pre>
+        </li>
+
+        <li class="step">
+          <h3 class="step__title">Restart Claude Code</h3>
+          <p class="step__body">Close and reopen Claude Code, or start a new session. The agent is now loaded with the correct tool restrictions.</p>
+        </li>
+
+        <li class="step">
+          <h3 class="step__title">Verify</h3>
+          <p class="step__body">Try asking Claude:</p>
+          <div class="callout">"Use the nevron-brand agent to design a button using Nevron brand colors."</div>
+          <p class="step__body">If the agent responds with M3 blue, sharp corners, and PrimeIcons — you're good.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- AUTO-TRIGGER -->
+  <section>
+    <div class="container">
+      <span class="section__eyebrow">03 — Auto-trigger</span>
+      <h2 class="section__title">Make it call itself</h2>
+      <p class="section__lead">By default you invoke the agent by name. To have Claude call it automatically on any Nevron-branded task, paste this prompt into Claude Code once:</p>
+
+<pre><code>Add the nevron-brand agent to my CLAUDE.md so it auto-triggers for any Nevron brand tasks.
+
+Ask me which projects I want to add it to — show me a multiple selection list of my projects that have a CLAUDE.md file. Also give me the option to add it globally to ~/.claude/CLAUDE.md.
+
+Add it to the agents table (or create one if it doesn't exist) with this row:
+| **nevron-brand** | Nevron brand colors, typography, logo usage, spacing, brand guidelines, any Nevron-branded design decisions | User asks about Nevron brand, or is building/reviewing anything Nevron-branded |
+
+Also add this to the agent decision flow (or create one): "Nevron brand question / building Nevron UI? → nevron-brand"</code></pre>
+
+      <p>Claude will ask which projects to configure, then handle the rest.</p>
+
+      <h3>What changes after auto-trigger is set up</h3>
+      <ul style="padding-left: 1.25rem; margin: var(--nevron-space-3) 0; color: var(--nevron-color-s2);">
+        <li style="margin-bottom: 0.5rem;">Ask about Nevron colors / fonts / guidelines → agent called automatically</li>
+        <li style="margin-bottom: 0.5rem;">Build any Nevron-branded component → agent called first</li>
+        <li style="margin-bottom: 0.5rem;">Review a design for brand consistency → agent consulted</li>
+        <li style="margin-bottom: 0.5rem;">Tokens, logos, typography used correctly without you specifying</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- UPDATING -->
+  <section>
+    <div class="container">
+      <span class="section__eyebrow">04 — Updating</span>
+      <h2 class="section__title">Pulling in new brand changes</h2>
+      <p class="section__lead">When the brand system evolves — new tokens, updated rules, added assets — pull the latest and re-copy the agent file:</p>
+
+<pre><code>cd ~/nevron-brand-agent
+git pull
+cp agent/nevron-brand.md ~/.claude/agents/</code></pre>
+
+      <p>Then restart Claude Code to pick up any changes to the agent's tools list or behavior.</p>
+
+      <div class="callout">
+        <strong>Why the copy step:</strong> The agent file in <code>~/.claude/agents/</code> is separate from the repo's source. <code>git pull</code> updates the repo but not the active install. The <code>cp</code> syncs them.
+      </div>
+    </div>
+  </section>
+
+  <!-- LINK TO BRAND SPEC -->
+  <section>
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="cta-block__title">See the brand in action</h2>
+        <p class="cta-block__text">The brand presentation page shows every color, gradient, type style, and component example live — a visual reference for anyone touching Nevron work.</p>
+        <a href="brand-preview.html" class="btn">
+          Open brand presentation
+          <i class="pi pi-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        <a href="https://github.com/kajasajn/nevron-brand-agent">github.com/kajasajn/nevron-brand-agent</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

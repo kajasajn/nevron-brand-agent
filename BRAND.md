@@ -142,7 +142,7 @@ font-family: 'Neue Haas Unica', 'Open Sans', 'Helvetica Neue', Arial, sans-serif
 | Level | Size | Weight | Line height | Usage |
 |-------|------|--------|-------------|-------|
 | Display | 3rem (48px) | 700 | 1.1 | Hero headlines |
-| H1 | 2.25rem (36px) | 700 | 1.15 | Page titles |
+| H1 | 2.25rem (36px) | 300 (light) | 1.15 | Page titles — thin weight is deliberate |
 | H2 | 1.75rem (28px) | 600 | 1.2 | Section headings |
 | H3 | 1.375rem (22px) | 600 | 1.25 | Subsection headings |
 | H4 | 1.125rem (18px) | 600 | 1.3 | Card titles, labels |

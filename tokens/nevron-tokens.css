@@ -83,11 +83,11 @@
 
   --nevron-gradient-dark: radial-gradient(ellipse at center,
     var(--nevron-color-m3),
-    var(--nevron-color-m1));
+    var(--nevron-color-m1) 70%);
 
   --nevron-gradient-dark-subtle: radial-gradient(ellipse at center,
     var(--nevron-color-m2),
-    var(--nevron-color-m1));
+    var(--nevron-color-m1) 70%);
 
   /* ========================================================================
      Typography
@@ -106,6 +106,7 @@
   --nevron-font-size-caption: 0.75rem;   /* 12px */
 
   /* Font Weights */
+  --nevron-font-weight-light: 300;
   --nevron-font-weight-regular: 400;
   --nevron-font-weight-medium: 500;
   --nevron-font-weight-semibold: 600;
