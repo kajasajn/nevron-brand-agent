@@ -327,12 +327,187 @@
 
     .footer a:hover { text-decoration: underline; }
 
+    /* ================= INSTALL BAR ================= */
+    .install-bar {
+      margin-top: var(--nevron-space-8);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--nevron-space-4);
+    }
+
+    .install-bar__group {
+      display: flex;
+      gap: var(--nevron-space-2);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-install {
+      background: var(--nevron-color-m3);
+      color: var(--nevron-color-white);
+      border: 1px solid var(--nevron-color-m3);
+      padding: var(--nevron-space-3) var(--nevron-space-6);
+      font-size: var(--nevron-font-size-body-sm);
+      font-weight: var(--nevron-font-weight-semibold);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background var(--nevron-transition-fast),
+                  border-color var(--nevron-transition-fast),
+                  transform var(--nevron-transition-fast),
+                  box-shadow var(--nevron-transition-fast);
+      font-family: inherit;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    .btn-install:hover {
+      background: var(--nevron-color-m2);
+      border-color: var(--nevron-color-m2);
+      transform: translateY(-1px);
+      box-shadow: var(--nevron-shadow-md);
+    }
+
+    .btn-install:active { transform: translateY(0); }
+
+    .btn-install.success {
+      background: var(--nevron-color-green);
+      border-color: var(--nevron-color-green);
+    }
+
+    .btn-install.error {
+      background: var(--nevron-color-red);
+      border-color: var(--nevron-color-red);
+    }
+
+    .btn-preview {
+      background: transparent;
+      color: var(--nevron-color-m5);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: var(--nevron-space-3) var(--nevron-space-5);
+      font-size: var(--nevron-font-size-body-sm);
+      font-weight: var(--nevron-font-weight-medium);
+      cursor: pointer;
+      font-family: inherit;
+      transition: color var(--nevron-transition-fast),
+                  border-color var(--nevron-transition-fast),
+                  background var(--nevron-transition-fast);
+      min-height: 44px;
+    }
+
+    .btn-preview:hover {
+      color: var(--nevron-color-white);
+      border-color: var(--nevron-color-white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* ================= MODAL ================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: color-mix(in srgb, var(--nevron-color-m1) 88%, transparent);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: var(--nevron-space-5);
+    }
+
+    .modal-overlay.show { display: flex; }
+
+    .modal {
+      background: var(--nevron-color-white);
+      border: 1px solid var(--nevron-color-s5);
+      max-width: 820px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--nevron-shadow-xl);
+    }
+
+    .modal-header {
+      padding: var(--nevron-space-4) var(--nevron-space-6);
+      border-bottom: 1px solid var(--nevron-color-s5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: var(--nevron-font-size-h4);
+      font-weight: var(--nevron-font-weight-semibold);
+      margin: 0;
+      color: var(--nevron-color-m1);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--nevron-color-s3);
+      font-size: 28px;
+      cursor: pointer;
+      padding: 0 var(--nevron-space-1);
+      font-weight: 300;
+      line-height: 1;
+      transition: color var(--nevron-transition-fast);
+    }
+
+    .modal-close:hover { color: var(--nevron-color-m1); }
+
+    .modal-body {
+      padding: var(--nevron-space-6);
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-body > p {
+      color: var(--nevron-color-s2);
+      font-size: var(--nevron-font-size-body-sm);
+      margin: 0 0 var(--nevron-space-4) 0;
+    }
+
+    .modal pre {
+      background: var(--nevron-color-m1);
+      color: var(--nevron-color-m5);
+      padding: var(--nevron-space-5);
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: var(--nevron-font-size-caption);
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+    }
+
+    .modal-footer {
+      padding: var(--nevron-space-4) var(--nevron-space-6);
+      border-top: 1px solid var(--nevron-color-s5);
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--nevron-space-3);
+      flex-wrap: wrap;
+    }
+
+    .modal-footer .btn-preview {
+      color: var(--nevron-color-s2);
+      border-color: var(--nevron-color-s5);
+    }
+    .modal-footer .btn-preview:hover {
+      color: var(--nevron-color-m1);
+      border-color: var(--nevron-color-s3);
+      background: var(--nevron-color-s6);
+    }
+
     /* ================= RESPONSIVE ================= */
     @media (max-width: 640px) {
       .header { padding: var(--nevron-space-10) 0 var(--nevron-space-8); }
       .header__title { font-size: var(--nevron-font-size-h1); }
       .section__title { font-size: var(--nevron-font-size-h2); }
       .step { padding-left: var(--nevron-space-10); }
+      .install-bar { flex-direction: column; align-items: stretch; }
+      .install-bar__group { justify-content: center; }
     }
   </style>
 </head>
@@ -368,6 +543,17 @@
       <img class="header__logo" src="nevron-logo-icon-white.svg" alt="Nevron">
       <h1 class="header__title">Nevron Brand Agent</h1>
       <p class="header__subtitle">A Claude Code agent that enforces Nevron brand consistency.<br>Across web, presentations, documents, and print.</p>
+
+      <div class="install-bar">
+        <div class="install-bar__group">
+          <button class="btn-install" id="install-btn" onclick="copyInstallPrompt()">Copy install prompt</button>
+          <button class="btn-preview" onclick="showInstallModal()">Preview</button>
+        </div>
+        <div class="install-bar__group">
+          <button class="btn-install" id="update-btn" onclick="copyUpdatePrompt()">Copy update prompt</button>
+          <button class="btn-preview" onclick="showUpdateModal()">Preview</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -496,6 +682,284 @@ cp agent/nevron-brand.md ~/.claude/agents/</code></pre>
       </p>
     </div>
   </footer>
+
+  <!-- INSTALL MODAL -->
+  <div class="modal-overlay" id="installModal" onclick="if(event.target===this)hideInstallModal()">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Install prompt</h3>
+        <button class="modal-close" onclick="hideInstallModal()" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Copy this into a fresh Claude Code session. Claude will clone the brand repo into <code>~/.claude/mcp-servers/nevron-brand-agent/</code>, symlink the agent file into <code>~/.claude/agents/</code>, and pause for confirmation at every step.</p>
+        <pre id="install-prompt-text"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-preview" onclick="hideInstallModal()">Close</button>
+        <button class="btn-install" onclick="copyInstallPrompt(); hideInstallModal();">Copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPDATE MODAL -->
+  <div class="modal-overlay" id="updateModal" onclick="if(event.target===this)hideUpdateModal()">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Update prompt</h3>
+        <button class="modal-close" onclick="hideUpdateModal()" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Paste into a Claude Code session on a machine that already has the agent installed. Claude will git-pull the cached clone, show you the diff for the agent file, back up your current version, and confirm before updating.</p>
+        <pre id="update-prompt-text"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-preview" onclick="hideUpdateModal()">Close</button>
+        <button class="btn-install" onclick="copyUpdatePrompt(); hideUpdateModal();">Copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const INSTALL_PROMPT = `I want to install the Nevron Brand Agent on this machine.
+
+The Nevron Brand Agent is a Claude Code agent that enforces Nevron brand consistency across web, presentations, documents, and print. The source repo is at https://github.com/kajasajn/nevron-brand-agent (public).
+
+Follow these steps. CONFIRM WITH ME at every key decision point. Do not guess paths or proceed silently.
+
+== STEP 1: PRE-FLIGHT CHECKS ==
+
+Verify this machine is ready. For each, report ok or not found:
+  - Claude Code is installed (~/.claude/ exists)
+  - git is on PATH
+  - Target parent directory ~/.claude/mcp-servers/ exists or can be created
+  - ~/.claude/agents/ exists or can be created
+
+If any prerequisite is missing, stop and tell me how to fix it, then wait.
+
+== STEP 2: CLONE the brand repo to the cache location ==
+
+Ask me: "Ready to clone the Nevron Brand Agent repo to ~/.claude/mcp-servers/nevron-brand-agent/?" Wait for confirmation.
+
+Then:
+    mkdir -p ~/.claude/mcp-servers
+    cd ~/.claude/mcp-servers
+
+Check if it already exists:
+    if [ -d nevron-brand-agent ]; then
+      echo "ERROR: ~/.claude/mcp-servers/nevron-brand-agent already exists."
+      echo "To update, run the UPDATE prompt. To reinstall, first: rm -rf ~/.claude/mcp-servers/nevron-brand-agent"
+      exit 1
+    fi
+
+Then clone:
+    git clone https://github.com/kajasajn/nevron-brand-agent.git
+
+Show me what was cloned:
+    ls ~/.claude/mcp-servers/nevron-brand-agent/
+
+Expect: agent/, BRAND.md, README.md, tokens/, assets/, examples/, index.html, brand-preview.html.
+
+== STEP 3: SYMLINK the agent file ==
+
+Ask me: "Ready to symlink agent/nevron-brand.md into ~/.claude/agents/nevron-brand.md? This lets future git-pull updates flow through automatically." Wait for confirmation.
+
+Check target doesn't exist:
+    if [ -e ~/.claude/agents/nevron-brand.md ]; then
+      echo "ERROR: ~/.claude/agents/nevron-brand.md already exists."
+      echo "Either delete it (if from a previous install): rm ~/.claude/agents/nevron-brand.md"
+      echo "Or run the UPDATE prompt instead."
+      exit 1
+    fi
+
+Then link:
+    mkdir -p ~/.claude/agents
+    ln -s ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+
+Verify:
+    ls -la ~/.claude/agents/nevron-brand.md
+    readlink ~/.claude/agents/nevron-brand.md
+
+The second command should print the full path to the target in the cache.
+
+== STEP 4: HEADS UP — BRAND_REPO PATH DETECTION ==
+
+The agent file has a hardcoded BRAND_REPO path near the top. On first use the agent will detect that path and, if it doesn't exist on this machine, run a Discovery step that globs the home directory to find the correct location and updates the BRAND_REPO line.
+
+Important: because the agent file is symlinked to the cached repo, the Discovery step's edit would modify the cached repo's source. This would cause a git conflict on the next update. Tell me so I am aware, then ASK me whether to:
+
+  (a) Let the agent auto-discover and update the BRAND_REPO on first use. I accept the git conflict risk on future pulls (can resolve with: git checkout agent/nevron-brand.md before running the UPDATE prompt).
+
+  (b) Manually set BRAND_REPO right now so discovery is a no-op. Use sed to replace the line:
+      sed -i.bak 's|^BRAND_REPO:.*|BRAND_REPO: '"$HOME"'/.claude/mcp-servers/nevron-brand-agent|' ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md
+      git -C ~/.claude/mcp-servers/nevron-brand-agent update-index --assume-unchanged agent/nevron-brand.md
+  The assume-unchanged flag tells git to ignore the local modification to this file, so future pulls work cleanly.
+
+Wait for my choice.
+
+== STEP 5: RESTART and VERIFY ==
+
+Tell me: "Restart Claude Code now so the agent is loaded with the correct tools list."
+
+After restart, in a fresh session, ask me to test:
+  "Use the nevron-brand agent to return the M3 brand blue hex."
+
+Expected answer: #1B92FF.
+
+If the agent is not found, check ~/.claude/agents/nevron-brand.md exists and the symlink resolves.
+
+== STEP 6: HANDOVER ==
+
+Print:
+    "Install complete.
+
+     Installed:
+       - Cache repo:  ~/.claude/mcp-servers/nevron-brand-agent/
+       - Agent file:  ~/.claude/agents/nevron-brand.md (symlink -> cache)
+
+     Usage:
+       Invoke via Claude Code: 'Use the nevron-brand agent to ...'
+       The agent reads BRAND.md, tokens, and assets from the cache on demand.
+
+     Updating:
+       Use the 'Copy update prompt' button at https://kajasajn.github.io/nevron-brand-agent/
+
+     Brand reference page:
+       https://kajasajn.github.io/nevron-brand-agent/brand-preview.html"
+
+Start with step 1.`;
+
+    const UPDATE_PROMPT = `I want to update the Nevron Brand Agent on this machine.
+
+This machine already has the agent installed. The cached repo is at ~/.claude/mcp-servers/nevron-brand-agent/. The agent file at ~/.claude/agents/nevron-brand.md is a symlink into that cache.
+
+Follow these steps. CONFIRM before each git or filesystem action.
+
+== STEP 1: VERIFY INSTALL ==
+
+Check the expected layout exists:
+    ls -la ~/.claude/agents/nevron-brand.md           (should be a symlink)
+    ls ~/.claude/mcp-servers/nevron-brand-agent/      (should contain agent/, BRAND.md, tokens/, etc.)
+
+If either is missing, STOP. Tell me: "No install detected. Run the INSTALL prompt first."
+
+== STEP 2: FETCH REMOTE CHANGES ==
+
+Fetch without merging so we can preview the diff first:
+    cd ~/.claude/mcp-servers/nevron-brand-agent
+    git fetch origin
+
+Show incoming commits:
+    git log --oneline HEAD..origin/master
+
+If the output is empty ("no new commits"), STOP. Tell me: "Already up to date with remote."
+
+== STEP 3: PREVIEW THE DIFF ==
+
+Show me exactly what will change in the agent file:
+    git diff HEAD..origin/master -- agent/nevron-brand.md
+
+Also the overall change summary across the whole repo:
+    git diff HEAD..origin/master --stat
+
+Ask me: "Review the changes. Proceed with the update?" Wait for my explicit confirmation.
+
+== STEP 4: BACK UP THE CURRENT AGENT FILE ==
+
+Before pulling, create a timestamped backup of the current agent file content (follow symlink with -L so we copy the target file, not the symlink):
+    TS=$(date +%Y%m%d-%H%M%S)
+    cp -L ~/.claude/agents/nevron-brand.md ~/.claude/agents/nevron-brand.md.bak-$TS
+
+Confirm backup exists:
+    ls -la ~/.claude/agents/nevron-brand.md.bak-$TS
+
+Tell me the backup path.
+
+== STEP 5: PULL ==
+
+Ask me once more: "Backup created. Proceed with git pull origin master?" Wait for confirmation.
+
+Then:
+    cd ~/.claude/mcp-servers/nevron-brand-agent
+    git pull origin master
+
+If the pull fails with a merge conflict on agent/nevron-brand.md, likely the agent self-updated the BRAND_REPO line during Discovery on a previous session. Resolve by:
+    git checkout -- agent/nevron-brand.md
+    git pull origin master
+
+Since the installed agent is a symlink, the updated content is live for new Claude Code sessions.
+
+== STEP 6: HANDOVER ==
+
+Print:
+    "Update complete.
+
+     Backup: ~/.claude/agents/nevron-brand.md.bak-$TS
+     (Delete this once you've confirmed the new version works:
+        rm ~/.claude/agents/nevron-brand.md.bak-$TS)
+
+     Restart Claude Code to reload the agent with the latest instructions.
+
+     To inspect recent changes to brand files:
+       cd ~/.claude/mcp-servers/nevron-brand-agent
+       git log --oneline HEAD~10..HEAD"
+
+Start with step 1.`;
+
+    async function copyToClipboard(text, btnId) {
+      const btn = document.getElementById(btnId);
+      const original = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied';
+        btn.classList.add('success');
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          btn.textContent = 'Copied';
+          btn.classList.add('success');
+        } catch {
+          btn.textContent = 'Copy failed';
+          btn.classList.add('error');
+        }
+        document.body.removeChild(ta);
+      }
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('success', 'error');
+      }, 2500);
+    }
+
+    function copyInstallPrompt() { copyToClipboard(INSTALL_PROMPT, 'install-btn'); }
+    function copyUpdatePrompt()  { copyToClipboard(UPDATE_PROMPT,  'update-btn');  }
+
+    function showInstallModal() {
+      document.getElementById('install-prompt-text').textContent = INSTALL_PROMPT;
+      document.getElementById('installModal').classList.add('show');
+    }
+    function hideInstallModal() {
+      document.getElementById('installModal').classList.remove('show');
+    }
+
+    function showUpdateModal() {
+      document.getElementById('update-prompt-text').textContent = UPDATE_PROMPT;
+      document.getElementById('updateModal').classList.add('show');
+    }
+    function hideUpdateModal() {
+      document.getElementById('updateModal').classList.remove('show');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const im = document.getElementById('installModal');
+      const um = document.getElementById('updateModal');
+      if (im.classList.contains('show')) hideInstallModal();
+      if (um.classList.contains('show')) hideUpdateModal();
+    });
+  </script>
 
 </body>
 </html>
