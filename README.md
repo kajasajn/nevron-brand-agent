@@ -47,6 +47,26 @@ nevron-brand-agent/
 
 ```
  ╔══════════════════════════════════════╗
+ ║  🧱  ARCHITECTURE                    ║
+ ╚══════════════════════════════════════╝
+```
+
+The agent file is intentionally **slim** (~180 lines). It holds brand philosophy, fast lookups, and pointers. Everything heavy lives in the repo and is loaded only when the agent actually needs it.
+
+| File | Role |
+|------|------|
+| `agent/nevron-brand.md` | The agent — install this |
+| `BRAND.md` | Full spec (colors, typography, logos, assets, format guidelines) — read on demand |
+| `assets/primeicons-list.txt` | Authoritative list of valid PrimeIcons names — greps instead of WebFetches |
+| `tokens/nevron-tokens.css` | All brand tokens as CSS custom properties |
+| `examples/` | Working reference snippets for web / presentations / documents |
+
+Keeps each session's context small, icon verification fast, and gives the agent one source of truth per topic.
+
+---
+
+```
+ ╔══════════════════════════════════════╗
  ║  ⚡  QUICK START                     ║
  ╚══════════════════════════════════════╝
 ```
@@ -78,7 +98,7 @@ Close and reopen Claude Code (or start a new session). Done.
 
 Try asking:
 
-> "Design a button using Nevron brand colors. Deploy the nevron-brand agent."
+> "Use the nevron-brand agent to design a button using Nevron brand colors."
 
 ---
 
@@ -230,6 +250,37 @@ Then use custom properties:
   transition: background-color var(--nevron-transition-base);
 }
 ```
+
+---
+
+```
+ ╔══════════════════════════════════════╗
+ ║  🔣  ICONS                           ║
+ ╚══════════════════════════════════════╝
+```
+
+Nevron uses **PrimeIcons** as the mandatory icon library. The agent enforces this — no inline SVGs, no Heroicons, no Lucide unless PrimeIcons truly lacks an equivalent.
+
+### CDN (required in every HTML file)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
+```
+
+### Usage
+
+```html
+<i class="pi pi-check"></i>
+<i class="pi pi-arrow-right"></i>
+```
+
+### Verification
+
+Every `pi pi-<name>` is grep-verified against `assets/primeicons-list.txt` before use. If the name is wrong, the icon renders as a blank square — the list prevents that.
+
+### Fallback
+
+`assets/icons/` holds custom Nevron SVGs (`web/`, `contentware/`, `technical/`) for cases PrimeIcons can't cover.
 
 ---
 
