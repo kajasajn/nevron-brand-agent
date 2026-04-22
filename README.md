@@ -25,18 +25,20 @@ Works in both the **Claude Code CLI** (terminal) and the **Claude Code desktop a
 nevron-brand-agent/
 ├── agent/
 │   └── nevron-brand.md          # The agent (install this)
+├── BRAND.md                     # Full brand spec (agent reads on demand)
 ├── assets/
 │   ├── logos/                   # SVG logos (monogram, with/without tagline)
 │   ├── icons/                   # Custom Nevron SVG icons
 │   ├── illustrations/           # Brand illustrations
 │   ├── product-images/          # Hardware product photos
 │   ├── screenshots/             # NevronCore app screenshots
+│   ├── primeicons-list.txt      # Verified PrimeIcons names (icon verification)
 │   └── fonts/
 │       └── README.md            # Font licensing info
 ├── tokens/
 │   └── nevron-tokens.css        # CSS custom properties (all brand tokens)
 └── examples/
-    ├── web-component.html       # Branded feature card demo
+    ├── web-component.html       # Branded feature card demo (PrimeIcons)
     ├── presentation-guide.md    # PowerPoint/Keynote slide templates
     └── document-guide.md        # PDF/Word document formatting
 ```
