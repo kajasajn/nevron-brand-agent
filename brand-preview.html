@@ -18,6 +18,79 @@
 
   <style>
     /* ==========================================================================
+       TOC sidebar
+       ========================================================================== */
+    .toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: var(--nevron-color-m1);
+      color: var(--nevron-color-m5);
+      padding: var(--nevron-space-8) var(--nevron-space-6);
+      overflow-y: auto;
+      z-index: 100;
+      font-size: var(--nevron-font-size-body-sm);
+    }
+    .toc__header {
+      display: flex;
+      align-items: center;
+      gap: var(--nevron-space-3);
+      padding-bottom: var(--nevron-space-6);
+      margin-bottom: var(--nevron-space-6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .toc__logo { height: 28px; width: auto; }
+    .toc__label {
+      font-size: var(--nevron-font-size-body-sm);
+      font-weight: var(--nevron-font-weight-semibold);
+      color: var(--nevron-color-white);
+    }
+    .toc__group { margin-bottom: var(--nevron-space-8); }
+    .toc__heading {
+      font-size: var(--nevron-font-size-caption);
+      font-weight: var(--nevron-font-weight-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--nevron-color-s4);
+      margin-bottom: var(--nevron-space-3);
+      padding-left: var(--nevron-space-3);
+    }
+    .toc__list { list-style: none; padding: 0; margin: 0; }
+    .toc__link {
+      display: block;
+      padding: var(--nevron-space-2) var(--nevron-space-3);
+      color: var(--nevron-color-m5);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: background var(--nevron-transition-fast),
+                  color var(--nevron-transition-fast),
+                  border-color var(--nevron-transition-fast);
+    }
+    .toc__link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--nevron-color-white);
+    }
+    .toc__link--active {
+      background: rgba(27, 146, 255, 0.12);
+      color: var(--nevron-color-white);
+      border-left-color: var(--nevron-color-m3);
+      font-weight: var(--nevron-font-weight-semibold);
+    }
+    @media (max-width: 960px) {
+      body { padding-left: 0 !important; }
+      .toc {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: var(--nevron-space-5) var(--nevron-space-6);
+      }
+      .toc__header { padding-bottom: var(--nevron-space-4); margin-bottom: var(--nevron-space-4); }
+      .toc__group { margin-bottom: var(--nevron-space-4); }
+    }
+
+    /* ==========================================================================
        Base
        ========================================================================== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -26,6 +99,7 @@
 
     body {
       margin: 0;
+      padding-left: 260px;
       font-family: var(--nevron-font-family);
       font-size: var(--nevron-font-size-body);
       line-height: var(--nevron-line-height-body);
@@ -872,6 +946,36 @@
   </style>
 </head>
 <body>
+
+  <aside class="toc" aria-label="Navigation">
+    <div class="toc__header">
+      <img class="toc__logo" src="nevron-logo-icon-white.svg" alt="">
+      <span class="toc__label">Brand Agent</span>
+    </div>
+
+    <nav class="toc__group" aria-label="Pages">
+      <div class="toc__heading">Pages</div>
+      <ul class="toc__list">
+        <li><a class="toc__link" href="index.html">Setup</a></li>
+        <li><a class="toc__link toc__link--active" href="brand-preview.html">Brand</a></li>
+      </ul>
+    </nav>
+
+    <nav class="toc__group" aria-label="On this page">
+      <div class="toc__heading">On this page</div>
+      <ul class="toc__list">
+        <li><a class="toc__link" href="#personality">Personality</a></li>
+        <li><a class="toc__link" href="#colors">Colors</a></li>
+        <li><a class="toc__link" href="#gradients">Gradients</a></li>
+        <li><a class="toc__link" href="#typography">Typography</a></li>
+        <li><a class="toc__link" href="#radius">Corner radius</a></li>
+        <li><a class="toc__link" href="#motion">Motion</a></li>
+        <li><a class="toc__link" href="#icons">Icons</a></li>
+        <li><a class="toc__link" href="#components">Components</a></li>
+        <li><a class="toc__link" href="#pitfalls">Pitfalls</a></li>
+      </ul>
+    </nav>
+  </aside>
 
   <!-- ========================================================================
        1. Header

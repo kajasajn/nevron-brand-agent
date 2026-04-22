@@ -83,11 +83,13 @@
 
   --nevron-gradient-dark: radial-gradient(ellipse at center,
     var(--nevron-color-m3),
-    var(--nevron-color-m1) 70%);
+    var(--nevron-color-m3) 30%,
+    var(--nevron-color-m1) 60%);
 
   --nevron-gradient-dark-subtle: radial-gradient(ellipse at center,
     var(--nevron-color-m2),
-    var(--nevron-color-m1) 70%);
+    var(--nevron-color-m2) 30%,
+    var(--nevron-color-m1) 60%);
 
   /* ========================================================================
      Typography

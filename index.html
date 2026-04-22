@@ -22,8 +22,90 @@
       line-height: var(--nevron-line-height-body);
       color: var(--nevron-color-s1);
       background: var(--nevron-color-white);
+      padding-left: 260px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ================= TOC SIDEBAR ================= */
+    .toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: var(--nevron-color-m1);
+      color: var(--nevron-color-m5);
+      padding: var(--nevron-space-8) var(--nevron-space-6);
+      overflow-y: auto;
+      z-index: 100;
+      font-size: var(--nevron-font-size-body-sm);
+    }
+
+    .toc__header {
+      display: flex;
+      align-items: center;
+      gap: var(--nevron-space-3);
+      padding-bottom: var(--nevron-space-6);
+      margin-bottom: var(--nevron-space-6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toc__logo { height: 28px; width: auto; }
+
+    .toc__label {
+      font-size: var(--nevron-font-size-body-sm);
+      font-weight: var(--nevron-font-weight-semibold);
+      color: var(--nevron-color-white);
+    }
+
+    .toc__group { margin-bottom: var(--nevron-space-8); }
+
+    .toc__heading {
+      font-size: var(--nevron-font-size-caption);
+      font-weight: var(--nevron-font-weight-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--nevron-color-s4);
+      margin-bottom: var(--nevron-space-3);
+      padding-left: var(--nevron-space-3);
+    }
+
+    .toc__list { list-style: none; padding: 0; margin: 0; }
+
+    .toc__link {
+      display: block;
+      padding: var(--nevron-space-2) var(--nevron-space-3);
+      color: var(--nevron-color-m5);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: background var(--nevron-transition-fast),
+                  color var(--nevron-transition-fast),
+                  border-color var(--nevron-transition-fast);
+    }
+
+    .toc__link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--nevron-color-white);
+    }
+
+    .toc__link--active {
+      background: rgba(27, 146, 255, 0.12);
+      color: var(--nevron-color-white);
+      border-left-color: var(--nevron-color-m3);
+      font-weight: var(--nevron-font-weight-semibold);
+    }
+
+    @media (max-width: 960px) {
+      body { padding-left: 0; }
+      .toc {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: var(--nevron-space-5) var(--nevron-space-6);
+      }
+      .toc__header { padding-bottom: var(--nevron-space-4); margin-bottom: var(--nevron-space-4); }
+      .toc__group { margin-bottom: var(--nevron-space-4); }
     }
 
     .container {
@@ -256,6 +338,31 @@
 </head>
 <body>
 
+  <aside class="toc" aria-label="Navigation">
+    <div class="toc__header">
+      <img class="toc__logo" src="nevron-logo-icon-white.svg" alt="">
+      <span class="toc__label">Brand Agent</span>
+    </div>
+
+    <nav class="toc__group" aria-label="Pages">
+      <div class="toc__heading">Pages</div>
+      <ul class="toc__list">
+        <li><a class="toc__link toc__link--active" href="index.html">Setup</a></li>
+        <li><a class="toc__link" href="brand-preview.html">Brand</a></li>
+      </ul>
+    </nav>
+
+    <nav class="toc__group" aria-label="On this page">
+      <div class="toc__heading">On this page</div>
+      <ul class="toc__list">
+        <li><a class="toc__link" href="#what-is-this">What is this</a></li>
+        <li><a class="toc__link" href="#quick-start">Quick start</a></li>
+        <li><a class="toc__link" href="#auto-trigger">Auto-trigger</a></li>
+        <li><a class="toc__link" href="#updating">Updating</a></li>
+      </ul>
+    </nav>
+  </aside>
+
   <header class="header">
     <div class="container">
       <img class="header__logo" src="nevron-logo-tagline-blue.svg" alt="Nevron">
@@ -265,7 +372,7 @@
   </header>
 
   <!-- WHAT IS THIS -->
-  <section>
+  <section id="what-is-this">
     <div class="container">
       <span class="section__eyebrow">01 — What is this</span>
       <h2 class="section__title">A brand specialist, on demand</h2>
@@ -280,7 +387,7 @@
   </section>
 
   <!-- QUICK START -->
-  <section>
+  <section id="quick-start">
     <div class="container">
       <span class="section__eyebrow">02 — Quick start</span>
       <h2 class="section__title">Install in under a minute</h2>
@@ -321,7 +428,7 @@ git clone https://github.com/kajasajn/nevron-brand-agent.git</code></pre>
   </section>
 
   <!-- AUTO-TRIGGER -->
-  <section>
+  <section id="auto-trigger">
     <div class="container">
       <span class="section__eyebrow">03 — Auto-trigger</span>
       <h2 class="section__title">Make it call itself</h2>
@@ -349,7 +456,7 @@ Also add this to the agent decision flow (or create one): "Nevron brand question
   </section>
 
   <!-- UPDATING -->
-  <section>
+  <section id="updating">
     <div class="container">
       <span class="section__eyebrow">04 — Updating</span>
       <h2 class="section__title">Pulling in new brand changes</h2>
