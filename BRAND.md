@@ -82,6 +82,49 @@ All brand tokens are available as CSS custom properties in `tokens/nevron-tokens
 6. Maintain WCAG AA minimum (4.5:1 body text, 3:1 large text)
 7. Emphasis uses M3 blue — not bold red
 
+### Gradients — the only approved patterns
+
+Two gradients are brand-approved. No other gradient combinations are on-brand.
+
+**1. Blue gradient (text accents, decorative elements)**
+
+```css
+background: var(--nevron-gradient-blue);
+/* = linear-gradient(135deg, M3, M4, M5) */
+```
+
+Use for: gradient text highlights, decorative bars, accent surfaces, illustrations. When applied as `background-clip: text`, remember the descender-clip pitfall (set `display: inline-block` + `line-height: 1.4`).
+
+**2. Dark gradient (dark backgrounds, hero sections)**
+
+```css
+background: var(--nevron-gradient-dark);
+/* = radial-gradient(ellipse at center, M3, M1) */
+```
+
+A radial glow of **M3 (or M2 for subtler)** placed over **M1 Navy**. Position can be `center`, `top`, `top left`, `top right`, `bottom`, `bottom right`, etc. — corner and edge variants are all on-brand.
+
+Subtler variant using M2 instead of M3:
+
+```css
+background: var(--nevron-gradient-dark-subtle);
+/* = radial-gradient(ellipse at center, M2, M1) */
+```
+
+For a custom position, compose inline (still on-brand):
+
+```css
+background: radial-gradient(ellipse at top left,
+  var(--nevron-color-m3),
+  var(--nevron-color-m1));
+```
+
+**What's NOT allowed:**
+- Linear gradients across the full color scale
+- Gradients involving supporting colors (red/orange/yellow/green)
+- Gradients mixing blues with grays
+- Multi-stop decorative gradients outside these two patterns
+
 ---
 
 ## Typography

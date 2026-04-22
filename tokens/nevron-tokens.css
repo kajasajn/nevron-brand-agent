@@ -70,6 +70,26 @@
   --nevron-color-focus: var(--nevron-color-m4);
 
   /* ========================================================================
+     Gradients — the only approved gradient patterns for Nevron
+     1. Blue gradient: M3 -> M4 -> M5 (for text accents, decorative elements)
+     2. Dark gradient: M3 (or M2) glow over M1 (for dark backgrounds, hero sections)
+        Default position is "at center". Override inline for corner/edge variants
+        (e.g. background: radial-gradient(ellipse at top left, var(--nevron-color-m3), var(--nevron-color-m1)))
+     ======================================================================== */
+  --nevron-gradient-blue: linear-gradient(135deg,
+    var(--nevron-color-m3),
+    var(--nevron-color-m4),
+    var(--nevron-color-m5));
+
+  --nevron-gradient-dark: radial-gradient(ellipse at center,
+    var(--nevron-color-m3),
+    var(--nevron-color-m1));
+
+  --nevron-gradient-dark-subtle: radial-gradient(ellipse at center,
+    var(--nevron-color-m2),
+    var(--nevron-color-m1));
+
+  /* ========================================================================
      Typography
      ======================================================================== */
   --nevron-font-family: 'Neue Haas Unica', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;

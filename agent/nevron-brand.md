@@ -70,6 +70,16 @@ Do not memorize the full brand — read these when you need them.
 
 Full color system → `BRAND.md`.
 
+### Gradients — only two approved
+
+| Use | Token | Pattern |
+|-----|-------|---------|
+| Text accent, decorative | `--nevron-gradient-blue` | `linear-gradient(135deg, M3, M4, M5)` |
+| Dark background, hero | `--nevron-gradient-dark` | `radial-gradient(ellipse at center, M3, M1)` |
+| Subtler dark background | `--nevron-gradient-dark-subtle` | `radial-gradient(ellipse at center, M2, M1)` |
+
+Dark gradient position (`center`, `top`, `top left`, `top right`, `bottom`, etc.) can be overridden inline — all positions are on-brand. No other gradient combinations are allowed.
+
 ### Logo selection
 
 ```
