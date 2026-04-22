@@ -82,13 +82,11 @@
     var(--nevron-color-m5));
 
   --nevron-gradient-dark: radial-gradient(ellipse at center,
-    var(--nevron-color-m3),
-    var(--nevron-color-m3) 30%,
+    color-mix(in srgb, var(--nevron-color-m3) 60%, var(--nevron-color-m1)),
     var(--nevron-color-m1) 60%);
 
   --nevron-gradient-dark-subtle: radial-gradient(ellipse at center,
-    var(--nevron-color-m2),
-    var(--nevron-color-m2) 30%,
+    color-mix(in srgb, var(--nevron-color-m2) 60%, var(--nevron-color-m1)),
     var(--nevron-color-m1) 60%);
 
   /* ========================================================================
