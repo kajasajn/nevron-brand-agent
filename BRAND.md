@@ -99,7 +99,8 @@ Use for: gradient text highlights, decorative bars, accent surfaces, illustratio
 
 ```css
 background: var(--nevron-gradient-dark);
-/* = radial-gradient(at center, M3-at-60%-opacity over M1, M1 at 60%) */
+/* = radial-gradient: soft disc of M3-at-40%-over-M1 (held 0-25%),
+     smooth fade to M1 by 80% */
 ```
 
 A radial glow of **M3 (or M2 for subtler)** placed over **M1 Navy**. Position can be `center`, `top`, `top left`, `top right`, `bottom`, `bottom right`, etc. — corner and edge variants are all on-brand.
@@ -108,7 +109,7 @@ Subtler variant using M2 instead of M3:
 
 ```css
 background: var(--nevron-gradient-dark-subtle);
-/* = radial-gradient(at center, M2-at-60%-opacity over M1, M1 at 60%) */
+/* = same pattern with M2 instead of M3 */
 ```
 
 For a custom position, compose inline (still on-brand):

@@ -82,12 +82,14 @@
     var(--nevron-color-m5));
 
   --nevron-gradient-dark: radial-gradient(ellipse at center,
-    color-mix(in srgb, var(--nevron-color-m3) 60%, var(--nevron-color-m1)),
-    var(--nevron-color-m1) 60%);
+    color-mix(in srgb, var(--nevron-color-m3) 40%, var(--nevron-color-m1)) 0%,
+    color-mix(in srgb, var(--nevron-color-m3) 40%, var(--nevron-color-m1)) 25%,
+    var(--nevron-color-m1) 80%);
 
   --nevron-gradient-dark-subtle: radial-gradient(ellipse at center,
-    color-mix(in srgb, var(--nevron-color-m2) 60%, var(--nevron-color-m1)),
-    var(--nevron-color-m1) 60%);
+    color-mix(in srgb, var(--nevron-color-m2) 40%, var(--nevron-color-m1)) 0%,
+    color-mix(in srgb, var(--nevron-color-m2) 40%, var(--nevron-color-m1)) 25%,
+    var(--nevron-color-m1) 80%);
 
   /* ========================================================================
      Typography
