@@ -262,11 +262,25 @@ Pattern: `{Device}_{Feature}.png`
 **Spacing (8px grid):**
 - `0.5rem, 1rem, 1.5rem, 2rem, 3rem, 4rem, 6rem` (= 8, 16, 24, 32, 48, 64, 96 px)
 
+**Corner radius — hard brand rule: default is 0 (sharp corners).**
+
+| Element | Radius | Token |
+|---------|--------|-------|
+| **Cards** | **0 (always)** | `--nevron-radius-lg` |
+| Buttons, inputs (default) | 0 | `--nevron-radius-md` |
+| Modals, large containers | 0 | `--nevron-radius-xl` |
+| Hero sections | 0 | `--nevron-radius-2xl` |
+| Tags, indicators, badges | 0.25rem | `--nevron-radius-sm` (exception) |
+| Pills, avatars, profile images | 9999px | `--nevron-radius-full` (exception) |
+
+Sharp corners define Nevron's visual language — architectural, confident, precise. Rounded corners soften the brand and should only appear on pills, avatars, or small indicators that genuinely need distinction.
+
 **Components:**
-- Buttons — min 44px touch target, `padding: 0.75rem 1.5rem`, `border-radius: 0.5rem`
-- Cards — `border-radius: 0.75rem`, subtle shadow, `padding: 1.5-2rem`
-- Inputs — 44px min height, M3 focus state
+- Buttons — min 44px touch target, `padding: 0.75rem 1.5rem`, sharp corners (`--nevron-radius-md`)
+- Cards — always sharp (`--nevron-radius-lg` = 0), subtle shadow, `padding: 1.5-2rem`
+- Inputs — 44px min height, M3 focus state, sharp corners
 - Links — M3 blue, underline on hover
+- Pills / avatars — only these use `--nevron-radius-full`
 
 **Token usage:**
 

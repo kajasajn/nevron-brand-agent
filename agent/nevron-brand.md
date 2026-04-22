@@ -103,6 +103,20 @@ Logo file names → `BRAND.md`.
 - **Product name:** **NevronCore** — one word, capital N and C. Never "Nevron Core" or "nevroncore".
 - **Voice:** clear, direct, technically competent. Not salesy or hyperbolic.
 
+### Corner radius — DEFAULT IS 0
+
+Nevron uses **sharp corners**. This is a hard brand rule.
+
+| Element | Radius | Token |
+|---------|--------|-------|
+| **Cards — always 0** | 0 | `--nevron-radius-lg` (= 0) |
+| Buttons, inputs | 0 | `--nevron-radius-md` (= 0) |
+| Modals, hero sections | 0 | `--nevron-radius-xl` / `-2xl` (= 0) |
+| Tags, indicators, badges | 0.25rem | `--nevron-radius-sm` (narrow exception) |
+| Pills, avatars, profile images | full round | `--nevron-radius-full` |
+
+If you catch yourself reaching for rounded corners on a card, button, or input — stop. That's off-brand. Sharp corners define the brand's architectural, confident feel.
+
 ### Motion & polish
 
 Use the existing shadow and transition tokens — never hard-code values:
@@ -177,3 +191,7 @@ Avoid `#000000` for body text and `#FFFFFF` backgrounds on content-heavy pages �
 ### Stretched logos and screenshots
 
 Never scale logos or product screenshots non-proportionally. If the target container isn't the right ratio, change the container — not the asset.
+
+### Rounded cards / buttons / inputs
+
+Common default in other design systems, **off-brand for Nevron**. Cards are always sharp. Buttons and inputs are sharp by default. Only pills, avatars, and small tag indicators get rounding. If a template or reference shows rounded cards, override it.

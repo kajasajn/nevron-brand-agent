@@ -136,13 +136,16 @@
 
   /* ========================================================================
      Border Radius
+     Nevron brand default: 0 corner radius. Sharp corners on cards, buttons,
+     inputs, modals, hero sections. Exceptions use -sm (narrow, for tags /
+     indicators) or -full (pills / avatars).
      ======================================================================== */
-  --nevron-radius-sm: 0.25rem;   /* 4px — small elements, tags */
-  --nevron-radius-md: 0.5rem;    /* 8px — buttons, inputs */
-  --nevron-radius-lg: 0.75rem;   /* 12px — cards */
-  --nevron-radius-xl: 1rem;      /* 16px — modals, large cards */
-  --nevron-radius-2xl: 1.5rem;   /* 24px — hero sections */
-  --nevron-radius-full: 9999px;  /* Pills, avatars */
+  --nevron-radius-sm: 0.25rem;   /* 4px — tags, indicators, badges (exception) */
+  --nevron-radius-md: 0;         /* Buttons, inputs — sharp */
+  --nevron-radius-lg: 0;         /* Cards — sharp (hard brand rule) */
+  --nevron-radius-xl: 0;         /* Modals, large containers — sharp */
+  --nevron-radius-2xl: 0;        /* Hero sections — sharp */
+  --nevron-radius-full: 9999px;  /* Pills, avatars (exception) */
 
   /* ========================================================================
      Shadows
