@@ -140,6 +140,7 @@ All six variants live in `assets/logos/`.
 3. **Light backgrounds** → blue variant
 4. **Minimum size:** monogram 24px, without tagline 80px wide, with tagline 120px wide
 5. **Never:** stretch, distort, rotate, add shadows/effects, change colors, place on busy backgrounds, crop
+6. **NEVER inline or recreate the logo SVG.** Always copy the source file from `assets/logos/` into the project folder and reference it via `<img src="...">`. Recreating the SVG from memory or paths produces garbled letterforms. "Self-contained single file" is not a valid reason to inline a logo — use an `<img>` with a sibling SVG file instead.
 
 ### Logo Selection — quick decision
 

@@ -142,9 +142,10 @@ Standard card hover: lift 2–4px on Y + shadow step up. Standard arrow CTA: `tr
 2. Include the PrimeIcons CDN in every HTML file
 3. Verify every icon name against `primeicons-list.txt` before using it
 4. **Copy brand assets into the project folder** before referencing — never link to `{BRAND_REPO}` paths in shipped code
-5. Use real brand assets sparingly — only where they genuinely add value, not as decoration
-6. Mobile-first, semantic, accessible (WCAG AA minimum)
-7. Provide complete, working code — not fragments
+5. **Logos: NEVER inline or recreate the SVG.** Always `cp` the logo file from `{BRAND_REPO}/assets/logos/` into the project folder and reference it with `<img src="...">`. This applies to demos, prototypes, and production alike — no exceptions. Recreating SVG paths from memory produces garbled letterforms and distorted geometry. "Self-contained single file" is not a valid reason to inline a logo.
+6. Use real brand assets sparingly — only where they genuinely add value, not as decoration
+7. Mobile-first, semantic, accessible (WCAG AA minimum)
+8. Provide complete, working code — not fragments
 
 ### When reviewing a design
 
@@ -195,3 +196,7 @@ Never scale logos or product screenshots non-proportionally. If the target conta
 ### Rounded cards / buttons / inputs
 
 Common default in other design systems, **off-brand for Nevron**. Cards are always sharp. Buttons and inputs are sharp by default. Only pills, avatars, and small tag indicators get rounding. If a template or reference shows rounded cards, override it.
+
+### Inlined or recreated logo SVG
+
+You cannot reproduce the Nevron wordmark or tagline from path data in your head — the letterforms will come out garbled, the tagline broken. The only correct move is to copy the actual SVG from `{BRAND_REPO}/assets/logos/` into the project and reference it via `<img>`. If you're tempted to inline SVG for a "self-contained demo," resist it — use `<img>` with a sibling SVG file instead.
