@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
 
   <!-- Nevron design tokens -->
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=cards2">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=role-bottom">
 
   <style>
     /* ==========================================================================
@@ -288,6 +288,7 @@
     .swatch__chip {
       height: 88px;
       border-bottom: 1px solid var(--nevron-color-s5);
+      flex-shrink: 0;
     }
 
     .swatch__meta {
@@ -295,6 +296,12 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+      flex: 1;
+    }
+
+    .swatch__role {
+      margin-top: auto;
+      padding-top: var(--nevron-space-2);
     }
 
     .swatch__token {
