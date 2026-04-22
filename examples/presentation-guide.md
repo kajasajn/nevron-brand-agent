@@ -8,7 +8,7 @@ Rules and templates for creating on-brand PowerPoint/Keynote presentations.
 
 - **Dimensions:** 16:9 (1920 x 1080 px)
 - **Margins:** 80px from all edges (safe zone for content)
-- **Font:** Neue Haas Unica (or Inter as fallback)
+- **Font:** Neue Haas Unica (or Open Sans as fallback)
 - **Logo placement:** Bottom-right corner, within safe zone
 
 ---

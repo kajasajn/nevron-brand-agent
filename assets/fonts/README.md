@@ -23,15 +23,15 @@
 If Neue Haas Unica is not available, use this fallback stack:
 
 ```css
-font-family: 'Neue Haas Unica', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+font-family: 'Neue Haas Unica', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 ```
 
-**Inter** (free, Google Fonts) is the closest free alternative and the recommended web fallback. Load it from Google Fonts:
+**Open Sans** (free, Google Fonts) is the recommended web fallback for Nevron. Load it from Google Fonts:
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
 ## Font Files

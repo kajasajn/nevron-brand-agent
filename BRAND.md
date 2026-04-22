@@ -89,10 +89,10 @@ All brand tokens are available as CSS custom properties in `tokens/nevron-tokens
 ### Primary typeface: Neue Haas Unica
 
 ```css
-font-family: 'Neue Haas Unica', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+font-family: 'Neue Haas Unica', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 ```
 
-Inter is the web fallback (Google Fonts, freely available).
+**Open Sans** is the web fallback when Neue Haas Unica is not available (freely available from Google Fonts).
 
 ### Type Scale
 
