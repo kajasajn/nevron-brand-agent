@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nevron Brand Agent — Install & Update</title>
 
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=winsupport">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=silent-repo">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -608,6 +608,21 @@ fi</code></pre>
         </li>
 
         <li class="step">
+          <h3 class="step__title">Set BRAND_REPO to your machine's cache path</h3>
+          <p class="step__body">The agent ships with the author's dev path hardcoded. Override it so Discovery never has to run on first use.</p>
+<pre><code>TARGET="$HOME/.claude/mcp-servers/nevron-brand-agent"
+
+if [ "$PLAT" = "windows" ]; then
+  sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/agents/nevron-brand.md
+  rm -f ~/.claude/agents/nevron-brand.md.bak
+else
+  sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md
+  rm -f ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md.bak
+  git -C ~/.claude/mcp-servers/nevron-brand-agent update-index --assume-unchanged agent/nevron-brand.md
+fi</code></pre>
+        </li>
+
+        <li class="step">
           <h3 class="step__title">Restart Claude Code</h3>
           <p class="step__body">Close and reopen Claude Code, or start a new session. The agent loads with the correct tool list (Read, Write, Edit, Grep, Glob).</p>
         </li>
@@ -671,9 +686,12 @@ cp -L ~/.claude/agents/nevron-brand.md ~/.claude/agents/nevron-brand.md.bak-$TS
 # Pull
 git pull origin master
 
-# On Windows, re-copy (symlink users can skip this)
+# On Windows, re-copy + re-apply BRAND_REPO (symlink users can skip this)
 if [ ! -L ~/.claude/agents/nevron-brand.md ]; then
+  TARGET="$HOME/.claude/mcp-servers/nevron-brand-agent"
   cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+  sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/agents/nevron-brand.md
+  rm -f ~/.claude/agents/nevron-brand.md.bak
 fi</code></pre>
 
       <p>Restart Claude Code to reload the agent with the new tools list or instructions.</p>
@@ -820,20 +838,34 @@ Verify:
 
 If the output starts with "l" it's a symlink (Unix). If it starts with "-" it's a regular file copy (Windows).
 
-== STEP 4: HEADS UP — BRAND_REPO PATH DETECTION ==
+== STEP 4: SET BRAND_REPO (silent, no prompt) ==
 
-The agent file has a hardcoded BRAND_REPO path near the top. On first use the agent will detect that path and, if it doesn't exist on this machine, run a Discovery step that globs the home directory to find the correct location and updates the BRAND_REPO line.
+The agent file's source ships with a hardcoded BRAND_REPO pointing at the author's dev machine. It needs to be overridden to point at THIS machine's cache. Do this silently — do NOT ask the user to choose. The default behavior below is always correct.
 
-Important: because the agent file is symlinked to the cached repo, the Discovery step's edit would modify the cached repo's source. This would cause a git conflict on the next update. Tell me so I am aware, then ASK me whether to:
+Compute the target path:
+    TARGET="$HOME/.claude/mcp-servers/nevron-brand-agent"
 
-  (a) Let the agent auto-discover and update the BRAND_REPO on first use. I accept the git conflict risk on future pulls (can resolve with: git checkout agent/nevron-brand.md before running the UPDATE prompt).
+Then apply based on install type:
 
-  (b) Manually set BRAND_REPO right now so discovery is a no-op. Use sed to replace the line:
-      sed -i.bak 's|^BRAND_REPO:.*|BRAND_REPO: '"$HOME"'/.claude/mcp-servers/nevron-brand-agent|' ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md
+    if [ "$PLAT" = "windows" ]; then
+      # Copy install — edit only the installed file, cache stays clean.
+      # Every UPDATE re-runs this step, which is fine.
+      sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/agents/nevron-brand.md
+      rm -f ~/.claude/agents/nevron-brand.md.bak
+    else
+      # Symlink install — the installed file IS the cache file.
+      # Edit the cache, mark assume-unchanged so git pull doesn't freak out about the local edit.
+      sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md
+      rm -f ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md.bak
       git -C ~/.claude/mcp-servers/nevron-brand-agent update-index --assume-unchanged agent/nevron-brand.md
-  The assume-unchanged flag tells git to ignore the local modification to this file, so future pulls work cleanly.
+    fi
 
-Wait for my choice.
+Verify silently:
+    grep "^BRAND_REPO:" ~/.claude/agents/nevron-brand.md
+
+Expected output: BRAND_REPO: /Users/<name>/.claude/mcp-servers/nevron-brand-agent (or Windows equivalent).
+
+Do NOT summarize this step back to the user or ask them anything about BRAND_REPO. Treat it like setting a file permission — just a mechanical post-install step.
 
 == STEP 5: RESTART and VERIFY ==
 
@@ -933,17 +965,23 @@ If the pull fails with a merge conflict on agent/nevron-brand.md, likely the age
     git checkout -- agent/nevron-brand.md
     git pull origin master
 
-== STEP 5b: REFRESH INSTALLED AGENT (Windows only) ==
+== STEP 5b: REFRESH INSTALLED AGENT + RE-APPLY BRAND_REPO ==
 
-If INSTALL_TYPE=symlink (Unix), the updated content is already live — the symlink resolves to the updated cached file. Nothing more to do.
+If INSTALL_TYPE=symlink (Unix), the updated content is already live. The assume-unchanged flag from install keeps git happy with our local BRAND_REPO edit. Nothing more to do.
 
-If INSTALL_TYPE=copy (Windows), the cache now has the new agent but the installed copy at ~/.claude/agents/ does not. Re-copy:
+If INSTALL_TYPE=copy (Windows), re-copy and re-apply BRAND_REPO silently:
+
+    TARGET="$HOME/.claude/mcp-servers/nevron-brand-agent"
     if [ "$INSTALL_TYPE" = "copy" ]; then
       cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
-      echo "[Windows] Re-copied agent file to ~/.claude/agents/."
-    else
-      echo "[Unix] Symlink already points to the updated file — no copy needed."
+      sed -i.bak "s|^BRAND_REPO:.*|BRAND_REPO: $TARGET|" ~/.claude/agents/nevron-brand.md
+      rm -f ~/.claude/agents/nevron-brand.md.bak
     fi
+
+Verify silently:
+    grep "^BRAND_REPO:" ~/.claude/agents/nevron-brand.md
+
+Do NOT ask the user about BRAND_REPO. This is a mechanical refresh step.
 
 == STEP 6: HANDOVER ==
 
