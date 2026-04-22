@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nevron Brand Agent — Install & Update</title>
 
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=heroes">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=winsupport">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -578,36 +578,45 @@
       <span class="section__eyebrow">02 — Quick start</span>
       <h2 class="section__title">Install in under a minute</h2>
 
+      <p style="margin-bottom: var(--nevron-space-6); color: var(--nevron-color-s2);">Fastest path: use <strong>Copy install prompt</strong> at the top of this page and paste it into a fresh Claude Code session — Claude handles all of the below. Prefer to do it manually? Follow the steps.</p>
+
       <ol class="steps">
         <li class="step">
-          <h3 class="step__title">Clone the repo</h3>
-          <p class="step__body">Pulls the agent, brand spec, tokens, and all assets to your home folder.</p>
-<pre><code>cd ~
+          <h3 class="step__title">Clone the repo into the cache location</h3>
+          <p class="step__body">Full brand repo lives here: agent, BRAND spec, tokens, assets. Claude Code's agent Read/Grep into this folder on demand.</p>
+<pre><code>mkdir -p ~/.claude/mcp-servers
+cd ~/.claude/mcp-servers
 git clone https://github.com/kajasajn/nevron-brand-agent.git</code></pre>
         </li>
 
         <li class="step">
-          <h3 class="step__title">Create the agents folder</h3>
-          <p class="step__body">Claude Code looks here for user-installed agents.</p>
-<pre><code>mkdir -p ~/.claude/agents</code></pre>
-        </li>
+          <h3 class="step__title">Install the agent file (symlink on Unix, copy on Windows)</h3>
+          <p class="step__body">Claude Code looks for user-installed agents in <code>~/.claude/agents/</code>. Unix supports symlinking (auto-updates on git pull). Windows without Developer Mode needs a real copy — which means re-running a copy step on every update.</p>
+<pre><code>mkdir -p ~/.claude/agents
 
-        <li class="step">
-          <h3 class="step__title">Copy the agent file</h3>
-          <p class="step__body">Installs the agent definition. Brand repo stays intact; only the definition file is copied.</p>
-<pre><code>cp ~/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/</code></pre>
+# Detect platform
+case "$(uname -s)" in
+  MINGW*|MSYS*|CYGWIN*)   PLAT=windows ;;
+  *)                      PLAT=unix ;;
+esac
+
+if [ "$PLAT" = "windows" ]; then
+  cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+else
+  ln -s ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+fi</code></pre>
         </li>
 
         <li class="step">
           <h3 class="step__title">Restart Claude Code</h3>
-          <p class="step__body">Close and reopen Claude Code, or start a new session. The agent is now loaded with the correct tool restrictions.</p>
+          <p class="step__body">Close and reopen Claude Code, or start a new session. The agent loads with the correct tool list (Read, Write, Edit, Grep, Glob).</p>
         </li>
 
         <li class="step">
           <h3 class="step__title">Verify</h3>
           <p class="step__body">Try asking Claude:</p>
-          <div class="callout">"Use the nevron-brand agent to design a button using Nevron brand colors."</div>
-          <p class="step__body">If the agent responds with M3 blue, sharp corners, and PrimeIcons — you're good.</p>
+          <div class="callout">"Use the nevron-brand agent to return the M3 brand blue hex."</div>
+          <p class="step__body">Expected answer: <code>#1B92FF</code>. If the agent isn't found, double-check the symlink or copy at <code>~/.claude/agents/nevron-brand.md</code>.</p>
         </li>
       </ol>
     </div>
@@ -646,16 +655,31 @@ Also add this to the agent decision flow (or create one): "Nevron brand question
     <div class="container">
       <span class="section__eyebrow">04 — Updating</span>
       <h2 class="section__title">Pulling in new brand changes</h2>
-      <p class="section__lead">When the brand system evolves — new tokens, updated rules, added assets — pull the latest and re-copy the agent file:</p>
+      <p class="section__lead">Fastest path: <strong>Copy update prompt</strong> at the top of this page and paste into Claude Code — it handles fetch, diff preview, backup, pull, and (on Windows) the re-copy. Prefer manual? Follow these steps.</p>
 
-<pre><code>cd ~/nevron-brand-agent
-git pull
-cp agent/nevron-brand.md ~/.claude/agents/</code></pre>
+<pre><code>cd ~/.claude/mcp-servers/nevron-brand-agent
 
-      <p>Then restart Claude Code to pick up any changes to the agent's tools list or behavior.</p>
+# Preview what's new
+git fetch origin
+git log --oneline HEAD..origin/master
+git diff HEAD..origin/master -- agent/nevron-brand.md
+
+# Backup current agent file before pulling
+TS=$(date +%Y%m%d-%H%M%S)
+cp -L ~/.claude/agents/nevron-brand.md ~/.claude/agents/nevron-brand.md.bak-$TS
+
+# Pull
+git pull origin master
+
+# On Windows, re-copy (symlink users can skip this)
+if [ ! -L ~/.claude/agents/nevron-brand.md ]; then
+  cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+fi</code></pre>
+
+      <p>Restart Claude Code to reload the agent with the new tools list or instructions.</p>
 
       <div class="callout">
-        <strong>Why the copy step:</strong> The agent file in <code>~/.claude/agents/</code> is separate from the repo's source. <code>git pull</code> updates the repo but not the active install. The <code>cp</code> syncs them.
+        <strong>Why the re-copy step:</strong> On Unix the installed agent is a symlink, so <code>git pull</code> updates it automatically. On Windows without Developer Mode it's a regular file, so you have to <code>cp</code> it again after every pull.
       </div>
     </div>
   </section>
@@ -759,27 +783,42 @@ Show me what was cloned:
 
 Expect: agent/, BRAND.md, README.md, tokens/, assets/, examples/, index.html, brand-preview.html.
 
-== STEP 3: SYMLINK the agent file ==
+== STEP 3: INSTALL the agent file (symlink on Unix, copy on Windows) ==
 
-Ask me: "Ready to symlink agent/nevron-brand.md into ~/.claude/agents/nevron-brand.md? This lets future git-pull updates flow through automatically." Wait for confirmation.
+Detect the shell environment. On real symlink support (macOS, Linux, WSL) we'll use ln -s so future git-pull updates flow through automatically. On Windows without Developer Mode (Git Bash / MSYS / Cygwin) ln -s silently creates a copy anyway, so we'll skip it and do an explicit cp that the user has to re-run on update.
 
-Check target doesn't exist:
+Run and report the detected platform:
+    case "$(uname -s)" in
+      MINGW*|MSYS*|CYGWIN*)   PLAT=windows ;;
+      Linux*|Darwin*|*BSD*)   PLAT=unix ;;
+      *)                      PLAT=unknown ;;
+    esac
+    echo "Detected platform: $PLAT"
+
+Ask me: "Ready to install the agent file into ~/.claude/agents/nevron-brand.md? ($PLAT detected)" Wait for confirmation.
+
+Guard against overwriting an existing install:
     if [ -e ~/.claude/agents/nevron-brand.md ]; then
       echo "ERROR: ~/.claude/agents/nevron-brand.md already exists."
-      echo "Either delete it (if from a previous install): rm ~/.claude/agents/nevron-brand.md"
+      echo "Either delete it first: rm ~/.claude/agents/nevron-brand.md"
       echo "Or run the UPDATE prompt instead."
       exit 1
     fi
-
-Then link:
     mkdir -p ~/.claude/agents
-    ln -s ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+
+Then install based on platform:
+    if [ "$PLAT" = "windows" ]; then
+      cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+      echo "[Windows] Copied agent file. Future updates: use the UPDATE prompt to re-copy after git pull."
+    else
+      ln -s ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+      echo "[Unix] Symlinked agent file. Future updates flow through automatically on git pull."
+    fi
 
 Verify:
     ls -la ~/.claude/agents/nevron-brand.md
-    readlink ~/.claude/agents/nevron-brand.md
 
-The second command should print the full path to the target in the cache.
+If the output starts with "l" it's a symlink (Unix). If it starts with "-" it's a regular file copy (Windows).
 
 == STEP 4: HEADS UP — BRAND_REPO PATH DETECTION ==
 
@@ -834,13 +873,21 @@ This machine already has the agent installed. The cached repo is at ~/.claude/mc
 
 Follow these steps. CONFIRM before each git or filesystem action.
 
-== STEP 1: VERIFY INSTALL ==
+== STEP 1: VERIFY INSTALL + DETECT INSTALL TYPE ==
 
 Check the expected layout exists:
-    ls -la ~/.claude/agents/nevron-brand.md           (should be a symlink)
+    ls -la ~/.claude/agents/nevron-brand.md           (should exist — symlink on Unix, regular file on Windows)
     ls ~/.claude/mcp-servers/nevron-brand-agent/      (should contain agent/, BRAND.md, tokens/, etc.)
 
 If either is missing, STOP. Tell me: "No install detected. Run the INSTALL prompt first."
+
+Detect install type for use in Step 5:
+    if [ -L ~/.claude/agents/nevron-brand.md ]; then
+      INSTALL_TYPE=symlink
+    elif [ -f ~/.claude/agents/nevron-brand.md ]; then
+      INSTALL_TYPE=copy
+    fi
+    echo "Install type: $INSTALL_TYPE"
 
 == STEP 2: FETCH REMOTE CHANGES ==
 
@@ -886,7 +933,17 @@ If the pull fails with a merge conflict on agent/nevron-brand.md, likely the age
     git checkout -- agent/nevron-brand.md
     git pull origin master
 
-Since the installed agent is a symlink, the updated content is live for new Claude Code sessions.
+== STEP 5b: REFRESH INSTALLED AGENT (Windows only) ==
+
+If INSTALL_TYPE=symlink (Unix), the updated content is already live — the symlink resolves to the updated cached file. Nothing more to do.
+
+If INSTALL_TYPE=copy (Windows), the cache now has the new agent but the installed copy at ~/.claude/agents/ does not. Re-copy:
+    if [ "$INSTALL_TYPE" = "copy" ]; then
+      cp ~/.claude/mcp-servers/nevron-brand-agent/agent/nevron-brand.md ~/.claude/agents/nevron-brand.md
+      echo "[Windows] Re-copied agent file to ~/.claude/agents/."
+    else
+      echo "[Unix] Symlink already points to the updated file — no copy needed."
+    fi
 
 == STEP 6: HANDOVER ==
 
