@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nevron Brand Agent — Install & Update</title>
 
-  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=silent-repo">
+  <link rel="stylesheet" href="tokens/nevron-tokens.css?v=addlist">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -677,7 +677,8 @@ Also add this to the agent decision flow (or create one): "Nevron brand question
 # Preview what's new
 git fetch origin
 git log --oneline HEAD..origin/master
-git diff HEAD..origin/master -- agent/nevron-brand.md
+git diff HEAD..origin/master --name-status | grep -E "^(A|R|D)"   # added / renamed / deleted
+git diff HEAD..origin/master -- agent/nevron-brand.md              # agent file changes
 
 # Backup current agent file before pulling
 TS=$(date +%Y%m%d-%H%M%S)
@@ -936,6 +937,9 @@ If the output is empty ("no new commits"), STOP. Tell me: "Already up to date wi
 
 Show me exactly what will change in the agent file:
     git diff HEAD..origin/master -- agent/nevron-brand.md
+
+List added / renamed / deleted files explicitly (easy to miss in a long stat):
+    git diff HEAD..origin/master --name-status | grep -E "^(A|R|D)" || echo "(no added/renamed/deleted files — existing files only)"
 
 Also the overall change summary across the whole repo:
     git diff HEAD..origin/master --stat
